@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html  lang="zh-Hant-TW"></html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>
+            加入會員
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="app">
+    <div class="sign">
+    <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
+        <form action="" method="post" class="signup">
+
+                <input type="text" class="form-control" name="username" v-model="username" v-bind="{ 'is-invalid': usernameError }" placeholder="帳號　含大小寫英文數字，最多10位" required />
+
+                <input type="password" class="form-control" name="password" v-model="password" v-bind="{ 'is-invalid': passwordError }" placeholder="密碼　含大小寫英文及數字，最多10位" required />
+
+                <input type="text" class="form-control" name="name" placeholder="姓名　陳ＸＸ" required/>
+
+                <input type="email" class="form-control" name="email" v-model="email" v-bind="{ 'is-invalid': emailError }" placeholder="信箱　adcd123@XXX.com" required />
+
+                <input type="tel" class="form-control" name="tel" pattern="^09[0-9]{8}$" placeholder="手機號碼　0900123123" required />
+            
+            <hr size="0.5px" width="80%">
+                <div class="select">
+                <!-- 用div把label和label包起來，才可以在CSS調整成同一行 -->
+                <label for="address" class="label">地址</label>
+                <select id="縣市1" class="select-control"></select>
+                <select id="鄉鎮市區1" class="select-control"></select>
+                </div>
+
+                <input type="address-line1" class="form-control" name="address-line1" placeholder="詳細地址 如：仁義路四段12號之3" required />
+            
+            <hr size="0.5px" width="80%">
+                <div class="select">
+                <label for="bdayInput" class="label">生日</label>   
+                <input type="date" class="form-date" name="date" required /> 
+                </div>
+                
+                <div class="sub"><input type="submit" value="註冊"></div>
+            </form>
+        
+    </div>
+</div>
+
+<div class="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    請勿包含特殊字元如-*/?,.:;"</strong>
+  </div>
+
+    <script src="user_sign.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            //當頁面載完之後，用AddressSeleclList.Initialize()，
+            //傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
+            AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
+            //後面四個參數分別是兩個下拉選單的預設文字跟值
+           AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
+       }
+       function show() {
+            //取出指定縣市及鄉鎮市區的下拉選單的值
+            alert(AddressSeleclList.ReturnSelectAddress('縣市1', '鄉鎮市區1'));
+        }
+     </script>
+    <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
+</body>

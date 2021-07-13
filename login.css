@@ -1,0 +1,87 @@
+/*網頁字型*/
+@font-face {
+    font-family: Secular One, sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+  }
+  body {
+    font-family: Secular One, sans-serif
+    }
+
+/* 背景、body */
+    body{
+        margin: 0px;
+    }
+    .loginDiv{
+        background-image: url("../test/testimg/backimg2.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100%;
+        height: 100vh;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+    }
+/* 表單的樣式 */
+.login {
+    color:#6b5e47;
+    text-align: center;
+    background-color:#d6d6c2;
+    width: 300px;
+    height: 400px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px gray;
+}
+.login input{
+    font-size: 18px;
+    display: block;
+    margin: 30px auto;
+    padding: 20px;
+    width: 250px;
+    height: 20px;
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0 0 10px seashell;
+}
+/* 登入按鈕 */
+.login input[type="submit"]{
+    cursor: pointer;
+    background-color:#555E30;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 250px;
+    padding: 10px;
+    /* 要設定padding，按鈕的文字才會置中 */
+    height: 60px;
+    text-align: center;
+}
+.login input[type="submit"]:hover{
+    background-color:#A18559;
+    color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    transition: 0.5s;
+}
+/* 忘記密碼、註冊會員頁連結的樣式 */
+#href1 a:link{
+    color:gray;
+    background-color:seashell;
+    padding: 10px;
+    margin: 20px;
+    text-decoration:none;
+    display: inline;
+    border-radius: 20px;
+    box-shadow: 0 0 10px seashell;
+   }
+
+   #href1 a:hover{
+    color:white;
+    background-color:#6b5e47;
+    text-decoration:none;
+    transition: 0.5s;
+    }
+
+    

@@ -9,30 +9,98 @@
   @return $px *100/1025 + vw;
 }
 
+.header{
+  margin: 0;
+  height: pxToVh(80);
+  background-color: #A18559;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  @media screen and (max-device-width: 420px){
+    width: 100vw;
+  }
+}
+.logo{
+  margin-block-start: 0em;
+  padding: 0%;
+  img{
+  margin: auto;
+  vertical-align: middle; 
+  }
+}
+#menu_control{//工具人
+  position: absolute;
+}
+#menu_control:checked ~.wrap >.list{
+  left: 0;
+}
+.menu_btn{//選單開關
+  width: 50px;
+  height: 50px;
+  background-color: #5F4B3F;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  &::before{
+    content: " ";
+    position: absolute;
+    height: 2px;
+    left: 2px;
+    width: 30px;
+    background-color: #FBF3ED;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    box-shadow: 0 12px 0 #FBF3ED,
+                0 -12px 0 #FBF3ED;
+  }
+  span{
+    opacity: 0;
+    display: block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  @media screen and (min-device-width: 768px){
+    display: none;
+  }
+}
  
-body{
+body{   
         margin: 0;
         background-image: url("../build_website/testimg/backimg.jpg");
         background-attachment: fixed;
         font-family: Secular One, sans-serif;
-        display: flex;
-        flex-direction: row;
-        align-content:center;
-        justify-content: flex-start;
-        position: relative;
-        top: pxToVh(100);
         width: 100%;
 
+.wrap{display: flex;
+  flex-direction: row;
+  align-content:center;
+  justify-content: flex-start;
+  
   .list{//左邊選單
+        position: relative;
+        top: pxToVh(80);
         position: fixed;
-        width: pxToVw(220);
-        height: pxToVh(450);
+        width: 300px;
+        height: 500px;
+        z-index: 2;
         background-color: #FBF3ED;
         display:flex;
         justify-content: center;
         flex-direction: column;
         align-content: center;
-        // @media screen and (max-device-width: 420px){ width: 250px; } 
+        
+        @media screen and (max-device-width: 420px){
+          width: 200px;
+          height: 100%;
+          position: absolute;
+          left: -100%;
+          transition: 0.5s;
+        }
       li{
         margin: pxToVw(50);
         text-align: left;
@@ -43,6 +111,11 @@ body{
         font-size: pxToVw(16);
         color: #5F4B3F;
         letter-spacing: pxToVw(5);
+        
+        @media (max-width:420px){
+          margin-left: 60px;
+          font-size: pxToVw(80);
+        }
 
         :link,:visited{
             text-decoration: none;
@@ -59,7 +132,7 @@ body{
             justify-content: center;
             flex-direction: column;
             align-content: center;
-            display: inline-block;
+            display: block;
             margin-bottom: pxToVh(5);
             margin-top: pxToVh(5);
            
@@ -80,7 +153,10 @@ body{
       }
   }
         
-  .box1{margin-left: pxToVw(325);
+  .box1{
+        position: relative;
+        top: pxToVh(100);
+        margin-left: pxToVw(325);
         margin-bottom: pxToVw(100);
         width:pxToVw(500);
         height: pxToVh(625);
@@ -93,6 +169,11 @@ body{
         flex-wrap: wrap;
         flex-direction: column;
         align-content: center;
+        @media screen and (max-device-width: 420px){
+          width:pxToVw(900);
+          margin-left: pxToVw(50);
+          height: pxToVh(500);
+        }
         .button_div{
           display:flex;
         justify-content: center;
@@ -112,6 +193,9 @@ body{
         border-bottom:0.5px solid #5F4B3F;
         border-radius: 10px;
         font-size: pxToVw(12);
+        @media screen and (max-device-width: 420px){
+          width: 150px;
+        }
           }
         ::-webkit-input-placeholder{
           color:#5F4B3F;
@@ -128,7 +212,11 @@ body{
             font-size: pxToVw(12);
             color:#FBF3ED;
             font-weight: 800;
-            
+            @media screen and (max-device-width: 420px){
+              width: 150px;
+              height: 50px;
+              margin-top: pxToVh(30);
+            }
             &:hover{
               background: -webkit-linear-gradient(left,#fff175,#d4b06e);
               background: -o-linear-gradient(right,#fff175,#d4b06e);
@@ -143,6 +231,8 @@ body{
     }
 
     .box2{
+      position: relative;
+        top: pxToVh(100);
       margin-left: pxToVw(325);
         margin-bottom: pxToVw(100);
         width:pxToVw(500);
@@ -156,7 +246,11 @@ body{
         flex-wrap: wrap;
         flex-direction: column;
         align-content: center;
-        
+        @media screen and (max-device-width: 420px){
+          width:pxToVw(900);
+          margin-left: pxToVw(50);
+          height: pxToVh(600);
+        }
         .button_div{
           display:flex;
         justify-content: center;
@@ -179,6 +273,9 @@ body{
         .form-name{
           font-size: pxToVw(12);
           width: pxToVw(150);
+          @media screen and (max-device-width: 420px){
+            width: 180px;
+          }
           }
         .form-control{
           color: #5F4B3F;
@@ -191,6 +288,10 @@ body{
         border-bottom:0.5px solid #5F4B3F;
         border-radius: 10px;
         font-size: pxToVw(12);
+        @media screen and (max-device-width: 420px){
+          width: 40px;
+          margin: 0;
+        }
           }
         ::-webkit-input-placeholder{
           color:#5F4B3F;
@@ -221,7 +322,11 @@ body{
             font-size: pxToVw(12);
             color:#FBF3ED;
             font-weight: 800;
-            
+            @media screen and (max-device-width: 420px){
+              width: 150px;
+              height: 50px;
+              margin-top: pxToVh(40);
+            }
             &:hover{
               background: -webkit-linear-gradient(left,#fff175,#d4b06e);
               background: -o-linear-gradient(right,#fff175,#d4b06e);
@@ -235,6 +340,8 @@ body{
           }
   }
   .box3{
+    position: relative;
+        top: pxToVh(100);
     margin-left: pxToVw(325);
     margin-bottom: pxToVw(100);
     width:pxToVw(500);
@@ -248,6 +355,11 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
+    @media screen and (max-device-width: 420px){
+      width:pxToVw(900);
+      margin-left: pxToVw(50);
+      height: pxToVh(500);
+    }
       ::-webkit-input-placeholder{
         color:#5F4B3F;
         font-size: pxToVw(12);
@@ -282,9 +394,11 @@ body{
           border-bottom:0.5px solid #5F4B3F;
           border-radius: 10px;
           font-size: pxToVw(12);
+          @media screen and (max-device-width: 420px){
+            width: 200px;
+            }
     }
-      .button{
-                
+      .button{   
         background-color: #A18559;
         border-style: none;
         height: pxToVh(50);
@@ -294,7 +408,11 @@ body{
         font-size: pxToVw(12);
         color:#FBF3ED;
         font-weight: 800;
-        
+        @media screen and (max-device-width: 420px){
+          width: 150px;
+          height: 50px;
+          margin-top: pxToVh(30);
+        }
         &:hover{
           background: -webkit-linear-gradient(left,#fff175,#d4b06e);
           background: -o-linear-gradient(right,#fff175,#d4b06e);
@@ -308,6 +426,8 @@ body{
       }
     }
     .box4{
+      position: relative;
+        top: pxToVh(100);
       margin-left: pxToVw(325);
       margin-bottom: pxToVw(100);
       backdrop-filter: blur(10px);
@@ -321,7 +441,12 @@ body{
       flex-wrap: wrap;
       flex-direction: column;
       align-content: center;
-
+      align-items: center;
+      @media screen and (max-device-width: 420px){
+        width:pxToVw(900);
+        margin-left: pxToVw(50);
+        height: pxToVh(500);
+      }
       ::-webkit-input-placeholder{
         color:#5F4B3F;
         font-size: pxToVw(12);
@@ -352,9 +477,11 @@ body{
           background-color: rgba($color: #FBF3ED, $alpha: 0.5);
           border-bottom:0.5px solid #5F4B3F;
           border-radius: 10px;
-    }
-      .button{
-                  
+          @media screen and (max-device-width: 420px){
+          width: 150px;
+          }
+      }
+      .button{     
         background-color: #A18559;
         border-style: none;
         height: pxToVh(50);
@@ -364,7 +491,11 @@ body{
         font-size: pxToVw(12);
         color:#FBF3ED;
         font-weight: 800;
-        
+        @media screen and (max-device-width: 420px){
+          width: 150px;
+          height: 50px;
+          margin-top: pxToVh(30);
+        }
         &:hover{
           background: -webkit-linear-gradient(left,#fff175,#d4b06e);
           background: -o-linear-gradient(right,#fff175,#d4b06e);
@@ -382,6 +513,8 @@ body{
 
 
       .box5{
+        position: relative;
+        top: pxToVh(100);
         margin-left: pxToVw(300);
         margin-bottom: pxToVw(100);
         background-color: white;
@@ -389,10 +522,13 @@ body{
         border-radius: 5px;
         box-shadow: 0 0 10px gray;
         display:flex;
-        
         flex-direction: column;
         align-content: center;
         justify-content: center;
+        @media (max-width:420px) {
+          margin: pxToVw(50);
+          width: pxToVw(900);
+        }
       
       //折價券、下一步
       .radio{
@@ -400,10 +536,13 @@ body{
         flex-direction: column;
         align-content: center;
         
-        padding-left:80px;
-        padding-top: 30px;
+        padding-left:pxToVw(80);
+        padding-top: pxToVh(30);
         background-color: #FBF3ED;
         margin-bottom: 40px;
+        @media (max-width:420px) {
+          padding-left:pxToVw(30);
+        }
 
         label {
           padding: 0;
@@ -432,12 +571,11 @@ body{
         //下一步
         .buttonNext{
           position: relative;
-          left: 400px;
-          margin-bottom: 30px;
+          left: pxToVw(300);
+          margin-bottom: pxToVh(30);
           text-decoration: none;
-          border-style: solid;
-          border-color: #A18559;
           background-color: #A18559;
+
           width: pxToVw(210);
           height: pxToVh(60);
           
@@ -449,6 +587,10 @@ body{
           font-size: 24px;
           color:#ffffff;
           font-weight: 800;
+          @media (max-width:420px) {
+            left: pxToVw(400);
+            width: 150px;
+          }
           &:hover{
             background-color: #ffffff;
             color: #5F4B3F;
@@ -467,20 +609,30 @@ body{
         justify-content: center;
         flex-wrap: wrap;
         flex-direction: row;
-        align-content: center;
+        align-items:center;
+        justify-content:center;
         border-bottom: 0.5px solid#cc9e4e;
+        @media (max-width:420px) {
+          flex-direction: column;
+          align-items:center;
+        }
         .itemName{
-          width: pxToVw(300);
+          width: pxToVw(150);
           color: #5F4B3F;
           font-weight: 800;
-          font-size: 20px;
-          margin: 20px;
+          font-size: pxToVw(16);
+          
+          @media (max-width:420px) {
+            width: pxToVw(500);
+            font-size: 16px;
+            margin: pxToVw(10);
+          }
         }
         .img{
           border-radius: 10px;
             margin: pxToVw(20);
-            max-width:50%;
-            max-height:50%;
+            max-width:60%;
+            max-height:60%;
         }
 
         .formPrice{
@@ -490,25 +642,28 @@ body{
           align-content: center;
           align-items: center;
           .form-control{
-            &::-webkit-inner-spin-button{
-              size: 20px;
-            }
             color: #cc9e4e;
             width: pxToVw(80);
             padding: 5px;
             height: pxToVh(40);
             border-style: none;
-            font-size: 20px;
+            font-size: pxToVw(20);
               background-color: rgba($color: #FBF3ED, $alpha: 0.5);
               border-bottom:0.5px solid #5F4B3F;
               border-radius: 10px;
+              @media (max-width:420px) {
+                width: pxToVw(300);
+                font-size: 20px;
+              }
           }
           .price{
             color: #cc9e4e;
             font-weight: 600;
-            font-size: 20px;
+            font-size: pxToVw(20);
             margin: 20px;
-            
+            @media (max-width:420px) {
+              font-size: 20px;
+            }
           }
 
         }
@@ -518,6 +673,8 @@ body{
     
   
         .box6{
+          position: relative;
+        top: pxToVh(100);
           margin-left: pxToVw(300);
           margin-bottom: pxToVw(100);
           background-color: white;
@@ -531,7 +688,10 @@ body{
           flex-direction: column;
           align-content: center;
           justify-content: center;
-        
+          @media (max-width:420px) {
+            margin: pxToVw(50);
+            width: pxToVw(900);
+          }
           
 
         .item{
@@ -574,6 +734,10 @@ body{
 
               margin-block-start: 0%;
               margin-block-end: pxToVh(30);
+
+              @media (max-width:420px) {
+                margin-block-end: pxToVh(10);
+              }
             }
             .buttonInfo{
             
@@ -593,10 +757,10 @@ body{
               color:#FBF3ED;
               font-weight: 800;
 
-              @media (max-width:400px) {
-                width: 50px;
-                height: 50px;
-                margin-block-end: pxToVh(30);
+              @media (max-width:412px) {
+                width: 200px;
+                height: 40px;
+                margin-block-end: pxToVh(10);
               }
 
               &:hover{
@@ -612,4 +776,5 @@ body{
       }
 
 
+}
 }

@@ -9,45 +9,57 @@
             會員資料
         </title>
 </head>
+
+<input type="checkbox" name="" id="menu_control">
+    <div class="header">
+        <h1 class="logo">
+            <a href=".html"><img src="../build_website/testimg/TAG-V2.png"></a>
+        </h1>
+
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </div>
+
 <body>
-
-    <div class="list">
-        <li>
-            <a href="user_edit.html"> ▎我的帳戶</a>
+    <div class="wrap">
+        <div class="list">
+            <li>
+                <a href="user_edit.html"> ▎我的帳戶</a>
+                
+                <ui><a href="user_edit.html"> ▏個人資料</ui></a>
+                <ui> <a href="user_ccard.html">▏我的信用卡</ui></a>
+                <ui> <a href="user_adr_edit.html"> ▏寄件地址</ui></a>
+                <ui> <a href="user_password_edit.html"> ▏更改密碼</ui></a>
+                
+            </li>
             
-            <ui><a href="user_edit.html"> ▏個人資料</ui></a>
-            <ui> <a href="user_ccard.html">▏我的信用卡</ui></a>
-            <ui> <a href="user_adr_edit.html"> ▏寄件地址</ui></a>
-            <ui> <a href="user_password_edit.html"> ▏更改密碼</ui></a>
-            
-        </li>
-        
-        <li>
-            <a href="shopping_cart.html">  ▎購物清單</a>
-        </li>
+            <li>
+                <a href="shopping_cart.html">  ▎購物清單</a>
+            </li>
 
-        <li>
-            <a href="shopping_info.html"> ▎通知一覽</a>
-        </li>
-    </div>
+            <li>
+                <a href="shopping_info.html"> ▎通知一覽</a>
+            </li>
+        </div>
 
-            <form class="box3">
-                <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-map-marker-alt"> 寄件地址</i></p>
-                    <select id="縣市1" class="select-control" required></select>
+                <form class="box3">
+                    <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-map-marker-alt"> 寄件地址</i></p>
+                        <select id="縣市1" class="select-control" required></select>
 
-                    <select id="鄉鎮市區1" class="select-control" required></select>
-                    
-                    <input type="text" class="form-control" autocomplete="address-level1" value="" placeholder="詳細地址 如：仁義路四段12號之3" required/>
-                <div class="button_div">
-                    <input type="button" onclick="show()" value="儲存地址" class="button"/> 
-                </div>
-                </form>
-             
-    </div>
+                        <select id="鄉鎮市區1" class="select-control" required></select>
+                        
+                        <input type="text" class="form-control" autocomplete="address-level1" value="" placeholder="詳細地址 如：仁義路四段12號之3" required/>
+                    <div class="button_div">
+                        <input type="button" onclick="show()" value="儲存地址" class="button"/> 
+                    </div>
+                    </form>
+    </div>         
+
     
 
 <script src="visa.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">

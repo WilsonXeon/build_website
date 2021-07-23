@@ -1,7 +1,4 @@
-import { AlertPlugin } from 'bootstrap-vue'
-Vue.use(AlertPlugin)
-import { BAlert } from 'bootstrap-vue'
-Vue.component('b-alert', BAlert)
+
 
 var app = new Vue({
     el: '#app',
@@ -16,41 +13,45 @@ var app = new Vue({
 
         email: '',
         emailError: false,
-        emailErrMsg: ''
+        emailErrMsg: '',
+
+        tel:'',
+        telError: false,
+        telErrMsg:'',
 
     },
 
     watch:{
         username: function () {
-            var isText = /^[a-zA-Z0-9]+$/;
+            let isText = /^[a-zA-Z0-9]+$/;
             if (!isText.test(this.username)) {
                 this.usernameError = true;
                 this.userErrMsg = '請勿包含特殊字元如-*/?,.:;"';
             }
-            else if (this.username.length > 15) {
+            else if (this.username.length > 10) {
                 this.usernameError = true;
-                this.userErrMsg = '請勿超過15個字';
+                this.userErrMsg = '請勿超過10個字';
             }
             else {
                 this.usernameError = false;
             }
-        }
-    },
-
+        },
+    
+    
     password: function () {
-        var isText = /^[a-zA-Z0-9]+$/;
-        var inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+        let isText = /^[a-zA-Z0-9]+$/;
+        let inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,10}$/;
         if (!isText.test(this.password)) {
             this.passwordError = true;
             this.passErrMsg = '請勿包含特殊字元如-*/?,.:;"';
         }
-        else if (this.password.length < 6) {
+        else if (this.password.length < 5) {
             this.passwordError = true;
-            this.passErrMsg = '請勿少於6個字';
+            this.passErrMsg = '請勿少於5個字';
         }
-        else if (this.password.length > 15) {
+        else if (this.password.length > 10) {
             this.passwordError = true;
-            this.passErrMsg = '請勿超過15個字';
+            this.passErrMsg = '請勿超過10個字';
         }
         else if (!include.test(this.password)) {
             this.passwordError = true;
@@ -61,7 +62,7 @@ var app = new Vue({
         }
     },
     email: function () {
-        var isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+        let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
         if (!isMail.test(this.email)) {
             this.emailError = true;
             this.emailErrMsg = 'email格式錯誤';
@@ -71,8 +72,18 @@ var app = new Vue({
         }
         },
     
+    tel: function () {
+        let isTel = /^09\\d{8}$/;
+        if (!isTel.test(this.tel)) {
+            this.telError = true;
+            this.telErrMsg = '手機號碼格式錯誤'; 
+        }
+        else{
+            this.telError = false;
+        }
+      },   
 
-    }
-
+   }
+},
 );
 

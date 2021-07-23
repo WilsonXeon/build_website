@@ -16,18 +16,35 @@
     <div id="app">
     <div class="sign">
     <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
-        <form action="" method="post" class="signup">
+        <form action="/member" method="post" class="signup">
 
-                <input type="text" class="form-control" name="username" v-model="username" v-bind="{ 'is-invalid': usernameError }" placeholder="帳號　含大小寫英文數字，最多10位" required />
+                <input type="text" class="form-control" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="帳號　含大小寫英文數字，最多10位" required />
 
-                <input type="password" class="form-control" name="password" v-model="password" v-bind="{ 'is-invalid': passwordError }" placeholder="密碼　含大小寫英文及數字，最多10位" required />
+                <div class="invalid-feedback">
+                    {{ userErrMsg }}
+                </div>
+
+                <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="密碼　含大小寫英文及數字，最多10位" required />
+
+                <div class="invalid-feedback">
+                    {{ passErrMsg }}
+                </div>
 
                 <input type="text" class="form-control" name="name" placeholder="姓名　陳ＸＸ" required/>
 
-                <input type="email" class="form-control" name="email" v-model="email" v-bind="{ 'is-invalid': emailError }" placeholder="信箱　adcd123@XXX.com" required />
+                <input type="email" class="form-control" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="信箱　adcd123@XXX.com" required />
 
-                <input type="tel" class="form-control" name="tel" pattern="^09[0-9]{8}$" placeholder="手機號碼　0900123123" required />
-            
+                <div class="invalid-feedback">
+                    {{ emailErrMsg }}
+                </div>
+
+                <input type="tel" class="form-control" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="手機號碼　0900123123" required />
+                
+                <div class="invalid-feedback">
+                    {{ telErrMsg }}
+                </div>
+
+
             <hr size="0.5px" width="80%">
                 <div class="select">
                 <!-- 用div把label和label包起來，才可以在CSS調整成同一行 -->
@@ -50,13 +67,10 @@
     </div>
 </div>
 
-<div class="alert">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    請勿包含特殊字元如-*/?,.:;"</strong>
-  </div>
 
     <script src="user_sign.js"></script>
     <script src="visa.js"></script>
+    <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">

@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Secular One, sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+}
+
+.header {
+  margin: 0;
+  height: 11.9403vh;
+  background-color: #A18559;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+@media screen and (max-device-width: 420px) {
+  .header {
+    width: 100vw;
+  }
+}
+
+.logo {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  padding: 0%;
+}
+
+.logo img {
+  margin: auto;
+  vertical-align: middle;
+}
+
+#menu_control {
+  position: absolute;
+}
+
+#menu_control:checked ~ .wrap > .list {
+  left: 0;
+}
+
+.menu_btn {
+  width: 50px;
+  height: 50px;
+  background-color: #5F4B3F;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.menu_btn::before {
+  content: " ";
+  position: absolute;
+  height: 2px;
+  left: 2px;
+  width: 30px;
+  background-color: #FBF3ED;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  -webkit-box-shadow: 0 12px 0 #FBF3ED, 0 -12px 0 #FBF3ED;
+          box-shadow: 0 12px 0 #FBF3ED, 0 -12px 0 #FBF3ED;
+}
+
+.menu_btn span {
+  opacity: 0;
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media screen and (min-device-width: 768px) {
+  .menu_btn {
+    display: none;
+  }
+}
+
+body {
+  margin: 0;
+  background-image: url("../build_website/testimg/backimg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  font-family: Secular One, sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=home.css.map */

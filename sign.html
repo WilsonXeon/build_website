@@ -12,38 +12,50 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
+
+<input type="checkbox" name="" id="menu_control">
+    <div class="header">
+        <h1 class="logo">
+            <a href=".html"><img src="../build_website/testimg/TAG-V2.png"></a>
+        </h1>
+
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </div>
+
 <body>
     <div id="app">
     <div class="sign">
     <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
         <form action="/member" method="post" class="signup">
 
-                <input type="text" class="form-control" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="帳號　含大小寫英文數字，最多10位" required />
-
                 <div class="invalid-feedback">
                     {{ userErrMsg }}
                 </div>
-
-                <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="密碼　含大小寫英文及數字，最多10位" required />
+                <input type="text" class="form-control" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="帳號　含大小寫英文數字，最多10位" required />
 
                 <div class="invalid-feedback">
                     {{ passErrMsg }}
                 </div>
+                <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="密碼　含大小寫英文及數字，最多10位" required />
 
+                <div class="invalid-feedback">
+                    
+                </div>
                 <input type="text" class="form-control" name="name" placeholder="姓名　陳ＸＸ" required/>
-
-                <input type="email" class="form-control" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="信箱　adcd123@XXX.com" required />
-
+               
                 <div class="invalid-feedback">
                     {{ emailErrMsg }}
                 </div>
+                <input type="email" class="form-control" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="信箱　adcd123@XXX.com" required />
 
-                <input type="tel" class="form-control" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="手機號碼　0900123123" required />
-                
                 <div class="invalid-feedback">
                     {{ telErrMsg }}
                 </div>
-
+                <input type="tel" class="form-control" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="手機號碼　0900123123" required />
+                
 
             <hr size="0.5px" width="80%">
                 <div class="select">

@@ -52,7 +52,7 @@ conn.connect(
   }
 });
 
-// 查詢資料庫 queryDatabase();
+// 查詢資料庫 queryDatabase();//新增資料
 function queryDatabase(){
   conn.query('SELECT * FROM member', 
       function (err, results, fields) {
@@ -63,12 +63,18 @@ function queryDatabase(){
           }
           console.log('Done.');
       })
+    //   conn.query('INSERT INTO member (member_ID, account, tel)', ['513179', 'asd333', '0919038666'], 
+    //   function (err, results, fields) {
+    //               if (err) throw err;
+    //       console.log('Inserted ' + results.affectedRows + ' row(s).');
+    //       })
   
 };
 
 //更新資料 updateData();
 function updateData(){
-       conn.query('UPDATE member SET tel = ? WHERE member_ID = 513134', ['0919038666'], 
+       conn.query('UPDATE member SET tel =  WHERE member_ID = 513134', 
+       ['0919038666'], 
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Updated ' + results.affectedRows + ' row(s).');
@@ -95,7 +101,15 @@ function deleteData(){
 //以上是mysql
 //以下是EXP
 app.get('/',(req, res)=>{
+    res.statusCode = 200;
+    console.log(req,url);
+    console.log(req,method);
 
+    res.setHeader('Content-Type','text/html')
+    /*Content-Type：表示內容格式
+    text/html 網頁
+    application/json JSON 資料
+    image/jpg 圖片 JPEG*/
     res.send(user_edit.html);
 
 });

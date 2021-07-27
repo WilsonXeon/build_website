@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>
+        好米行
+    </title>
+    <!--BootstrapRWD-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="../../static/css/login.css" rel="stylesheet">
+
+</head>
+
+<input type="checkbox" name="" id="menu_control">
+    <div class="header">
+        <h1 class="logo">
+            <a href="home.html"><img src="https://raw.githubusercontent.com/WilsonXeon/build_website/pages/testimg/TAG-V2.png"></a>
+        </h1>
+
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </div>
+
+
+<body>
+
+<div class="loginDiv">
+
+   <!-- 帳號密碼表單 -->
+  <form action=""與後台接 form method="post" class="login">
+      {% csrf_token %}
+    <h1>Login</h1>
+   <input type="text" id="accountInput" name="account" placeholder="帳號">
+   <input type="password" id="passwordInput" placeholder="密碼">
+
+   <input type="submit" value="登入" >
+
+
+   <!-- 忘記密碼、註冊會員頁連結 -->
+   <div id="href1">
+   <a href="forget.html" target="_blank">忘記密碼</a>
+    <a href="register.html" target="_blank">加入會員</a>
+    </div>
+  </form>
+
+</div>
+
+<script src="/login/static/js/index.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+</body>
+
+</html>

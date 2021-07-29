@@ -1,0 +1,65 @@
+@function pxToVh($px){
+    @return $px *100/670 + vh;
+  }
+  @function pxToVw($px){
+    @return $px *100/1025 + vw;
+  }
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #D1913C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #FFD194, #D1913C);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #FFD194, #D1913C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .err_1{
+        position: absolute;
+        bottom: pxToVh(200);
+        left: pxToVw(400);
+        width: pxToVw(250);
+    }
+   
+    .err_2{
+        width: pxToVw(225);
+        z-index: 2;
+        position: absolute;
+        bottom: pxToVh(215);
+        left: pxToVw(410);
+        animation: myfirst 5s infinite linear;
+        transform-origin:center 50%;
+        /*transform-origin:20% 50%; 定元素的基點位置*/
+        /*-moz-transform:rotate(45deg);
+        -webkit-transform:rotate(45deg);
+        -o-transform:rotate(45deg);
+        -ms-transform:rotate(45deg);
+        transform:rotate(45deg);*/
+      }
+      @keyframes myfirst
+      {
+        from {transform: rotate(0);}
+        to {transform: rotate(360deg);}
+      }
+    }
+    h2{
+        text-align: center;
+        width: 100vw;
+        position: relative;
+        top: pxToVh(200);
+        color: white;
+        letter-spacing: pxToVw(5);
+        font-size: pxToVw(20);
+        font-weight: 100;
+    }
+

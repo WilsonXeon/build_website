@@ -12,7 +12,7 @@ let config =
     host: '52.171.57.192',
     user: 'user',
     password: 'POMELO',
-    database: 'SQL',
+    database: 'shop',
     port: 3306,
     ssl : {
       rejectUnauthorized: false

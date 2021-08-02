@@ -1,10 +1,81 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="zh-Hant-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="../../static/css/editstyle.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>
+            會員資料
+        </title>
+
 </head>
+
+<input type="checkbox" name="" id="menu_control">
+    <div class="header">
+        <h1 class="logo">
+            <a href="/home"><img src="https://raw.githubusercontent.com/WilsonXeon/build_website/pages/testimg/TAG-V2.png"></a>
+        </h1>
+
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </div>
+
 <body>
-$END$
+    <div class="wrap">
+    <div class="list">
+        <li>
+            <a href="/user_edit"> ▎我的帳戶</a>
+
+            <ui><a href="/user_edit"> ▏個人資料</ui></a>
+            <ui> <a href="/user_ccard">▏我的信用卡</ui></a>
+            <ui> <a href="/user_adr_edit"> ▏寄件地址</ui></a>
+            <ui> <a href="/user_password_edit"> ▏更改密碼</ui></a>
+
+        </li>
+
+        <li>
+            <a href="/shopping_cart">  ▎購物清單</a>
+        </li>
+
+        <li>
+            <a href="/shopping_info"> ▎通知一覽</a>
+        </li>
+    </div>
+
+        <form class="box1" action="{{link}}" method="post">
+            <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-user"> 個人資料</i></p>
+            <div class="label_input">
+                <label class="label">姓名</label>
+                <input name="username" type="text" class="form-control" placeholder="如　陳ＸＸ" value="" required />
+            </div>
+            <div class="label_input">
+                <label class="label">信箱</label>
+                <input name="email" type="email" class="form-control" placeholder="如　adcd123@XXX.com" value="" required />
+            </form>
+            <div class="label_input">
+                <label for="phoneInput" class="label">手機</label>
+                <input name="phone" type="phone" class="form-control" placeholder="如　0900123123" value="" pattern="[0-9\s]{10}" maxlength="10" required />
+            </div>
+            <div class="label_input">
+                <label for="bdayInput" class="label">生日</label>
+                <input name="date" type="date" class="form-control" value="" required />
+            </div>
+            <div class="button_div">
+                <input type="button" onclick="submit()" value="儲存變更" class="button"/>
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="{% static '/css/index.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+ <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>
 </html>

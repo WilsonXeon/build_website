@@ -20,8 +20,15 @@ from login import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.home),
-    path('home.html/', views.home),
+    path('home/', views.home),
     path('', views.login),
-    path('register.html', views.register),
-    path('forget.html/', views.forget)
+    path('login/', views.login),
+    path('register/', views.register),
+    path('forget/', views.forget),
+    path('shopping_cart/', views.shopping_cart),
+    path('shopping_info/', views.shopping_info),
+    path('user_ccard/', views.user_ccard),
+    path('user_adr_edit/', views.user_adr_edit),
+    path('user_edit/', views.user_edit),
+    path('user_password_edit', views.user_password_edit)
 ]

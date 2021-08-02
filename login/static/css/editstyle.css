@@ -59,8 +59,10 @@
   right: 0;
   left: 0;
   margin: auto;
-  -webkit-box-shadow: 0 12px 0 #FBF3ED, 0 -12px 0 #FBF3ED;
-          box-shadow: 0 12px 0 #FBF3ED, 0 -12px 0 #FBF3ED;
+  -webkit-box-shadow: 0 12px 0 #FBF3ED,
+ 0 -12px 0 #FBF3ED;
+          box-shadow: 0 12px 0 #FBF3ED,
+ 0 -12px 0 #FBF3ED;
 }
 
 .menu_btn span {
@@ -79,7 +81,7 @@
 
 body {
   margin: 0;
-  background-image: url("../build_website/testimg/backimg.jpg");
+  background-image: url("/login/static/image/backimg.jpg");
   background-attachment: fixed;
   font-family: Secular One, sans-serif;
   width: 100%;

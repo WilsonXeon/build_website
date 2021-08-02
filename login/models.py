@@ -10,7 +10,7 @@ class product(models.Model):
 
 
 class sign(models.Model):
-    account = models.CharField(max_length=128, blank=False, null=False, unique=True)
+    username = models.CharField(max_length=128, blank=False, null=False, unique=True)
     password = models.CharField(max_length=256)
     name = models.CharField(max_length=50)
     email = models.EmailField(blank=False, null=False)

@@ -4,7 +4,7 @@ from .models import sign, product
 # Register your models here.
 
 class signAdmin(admin.ModelAdmin):
-    list_display = ('account', 'name', 'tel') #顯示欄位
+    list_display = ('username', 'name', 'tel') #顯示欄位
 admin.site.register(sign,signAdmin)
 
 class productAdmin(admin.ModelAdmin):

@@ -34,29 +34,42 @@
     <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
         <form action="" method="post" class="signup">
          {% csrf_token %}
+
+                <div class="invalid-feedback">
+                    {{ userErrMsg }}
+                </div>
                 <div>
-                    <label for="account" class="label">帳號 </label>
-                     {{ form.account }}
+                    <label for="username" class="label">帳號 </label>
+                     <input type="text" class="form-control" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="含大小寫英文數字，最多10位" required />
                 </div>
 
+                <div class="invalid-feedback">
+                    {{ passErrMsg }}
+                </div>
                 <div>
                     <label for="password" class="label">密碼 </label>
-                     {{ form.password }}
+                     <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="含大小寫英文及數字，最多10位" required />
                 </div>
 
                 <div>
                     <label for="name" class="label">姓名 </label>
-                     {{ form.name }}
+                     <input type="text" class="form-control" name="name" placeholder="陳ＸＸ" required/>
                 </div>
 
+                <div class="invalid-feedback">
+                    {{ emailErrMsg }}
+                </div>
                 <div>
                     <label for="email" class="label">信箱 </label>
-                     {{ form.email }}
+                    <input type="email" class="form-control" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="adcd123@XXX.com" required />
                 </div>
 
+                <div class="invalid-feedback">
+                    {{ telErrMsg }}
+                </div>
                 <div>
                     <label for="tel" class="label">電話 </label>
-                     {{ form.tel }}
+                    <input type="tel" class="form-control" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="0900123123" required />
                 </div>
 
 
@@ -66,13 +79,13 @@
                     <label for="address" class="label">地址 </label>
 
                 </div>
-                {{ form.adress }}
 
+                <input type="adress" class="form-control" name="adress" placeholder="詳細地址 如：仁義路四段12號之3" required />
 
             <hr size="0.5px" width="80%">
                 <div class="select">
                 <label for="bdayInput" class="label">生日 </label>
-                    {{ form.birth }}
+                    <input type="date" class="form-date" name="birth" required />
                 </div>
 
                 <div class="sub"><input type="submit" value="註冊"></div>

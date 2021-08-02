@@ -18,7 +18,7 @@ def login(request):
             # 密碼長度驗證
             # 更多的其它驗證.....
             try:
-                user = models.sign.objects.get(account=username)
+                user = models.sign.objects.get(username=username)
             except:
                 message = '使用者不存在！'
                 return render(request, 'login/login.html', {'message': message})

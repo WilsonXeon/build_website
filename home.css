@@ -36,8 +36,20 @@
   color: #FBF3ED;
 }
 
-.info .dropdown-item {
+.info .dropdown-menu {
+  min-width: 100px;
+  margin-top: 2.98507vh;
+}
+
+.info .dropdown-menu .dropdown-item {
+  font-size: 1.56098vw;
+  line-height: 7.46269vh;
+  letter-spacing: 0.09756vw;
   color: #5F4B3F;
+}
+
+.info .dropdown-menu .dropdown-item:hover {
+  background-color: #FBF3ED;
 }
 
 .logo {

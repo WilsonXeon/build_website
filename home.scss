@@ -36,9 +36,20 @@
       :hover{
         color: #FBF3ED;
       }
-      .dropdown-item{
-        color: #5F4B3F;
+      .dropdown-menu{
+        min-width:100px;
+        margin-top: pxToVh(20);
+        .dropdown-item{
+          font-size: pxToVw(16);
+          line-height: pxToVh(50);
+          letter-spacing: pxToVw(1);
+          color: #5F4B3F;
+          &:hover{
+            background-color: #FBF3ED;
+          }
+        }
       }
+      
     }
     .logo{
       margin-block-start: 0em;

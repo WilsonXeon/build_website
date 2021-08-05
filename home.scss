@@ -55,7 +55,7 @@
       margin-block-start: 0em;
       padding: 0%;
       img{
-      margin: auto;
+      margin-left: pxToVw(20);
       vertical-align: middle; 
       }
     }
@@ -148,6 +148,7 @@
       :hover{
         color: #849444;
         transition: 0.5s;
+        
       }
       
       ui{
@@ -166,8 +167,8 @@
           font-size: pxToVw(16);
         }
         :hover{
-          border: 1px solid #5F4B3F;
           color: #5F4B3F;
+          border: 1px solid #5F4B3F;
           transition: 0.5s;
           box-shadow: 8px 8px 0px 0px #5F4B3F;
               }

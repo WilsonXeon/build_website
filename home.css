@@ -22,7 +22,7 @@
 .info {
   color: #cc9e4e;
   font-size: 5.22388vh;
-  letter-spacing: 0.97561vw;
+  letter-spacing: 0.4878vw;
   position: absolute;
   right: 5.85366vw;
   top: 2.98507vh;
@@ -34,6 +34,10 @@
 
 .info :hover {
   color: #FBF3ED;
+}
+
+.info .dropdown-item {
+  color: #5F4B3F;
 }
 
 .logo {

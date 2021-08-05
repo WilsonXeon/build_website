@@ -10,7 +10,7 @@
 @function pxToVw($px){
     @return $px *100/1025 + vw;
     }
-  
+ 
     .header{
       margin: 0;
       height: pxToVh(80);
@@ -26,7 +26,7 @@
     .info{
       color: #cc9e4e;
       font-size: pxToVh(35);
-      letter-spacing: pxToVw(10);
+      letter-spacing: pxToVw(5);
       position: absolute;
       right: pxToVw(60);
       top: pxToVh(20);
@@ -35,6 +35,9 @@
       }
       :hover{
         color: #FBF3ED;
+      }
+      .dropdown-item{
+        color: #5F4B3F;
       }
     }
     .logo{

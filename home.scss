@@ -159,7 +159,6 @@
         display: block;
         margin-bottom: pxToVh(5);
         margin-top: pxToVh(5);
-       
         :link,:visited{
           letter-spacing: pxToVw(2);
           text-decoration: none;
@@ -167,8 +166,10 @@
           font-size: pxToVw(16);
         }
         :hover{
+          border: 1px solid #5F4B3F;
           color: #5F4B3F;
           transition: 0.5s;
+          box-shadow: 8px 8px 0px 0px #5F4B3F;
               }
           }
         }

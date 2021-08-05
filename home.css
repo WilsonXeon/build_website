@@ -219,9 +219,12 @@ body .list li ui :link, body .list li ui :visited {
 }
 
 body .list li ui :hover {
+  border: 1px solid #5F4B3F;
   color: #5F4B3F;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  -webkit-box-shadow: 8px 8px 0px 0px #5F4B3F;
+          box-shadow: 8px 8px 0px 0px #5F4B3F;
 }
 
 body .wrap {

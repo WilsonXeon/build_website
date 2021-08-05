@@ -32,12 +32,12 @@
     <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
         <form action="/member" method="post" class="signup">
 
-                <div class="invalid-feedback">
+                <div class="invalid-feedback" v-if="this.usernameError === true">
                     {{ userErrMsg }}
                 </div>
                 <input type="text" class="form-control" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="帳號　含大小寫英文數字，最多10位" required />
 
-                <div class="invalid-feedback">
+                <div class="invalid-feedback" v-if="this.passwordError === true">
                     {{ passErrMsg }}
                 </div>
                 <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="密碼　含大小寫英文及數字，最多10位" required />
@@ -45,12 +45,12 @@
                 
                 <input type="text" class="form-control" name="name" placeholder="姓名　陳ＸＸ" required/>
                
-                <div class="invalid-feedback">
+                <div class="invalid-feedback" v-if="this.emailError === true">
                     {{ emailErrMsg }}
                 </div>
                 <input type="email" class="form-control" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="信箱　adcd123@XXX.com" required />
 
-                <div class="invalid-feedback">
+                <div class="invalid-feedback" v-if="this.telError === true">
                     {{ telErrMsg }}
                 </div>
                 <input type="tel" class="form-control" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="手機號碼　0900123123" required />

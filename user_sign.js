@@ -19,7 +19,25 @@ var app = new Vue({
         telError: false,
         telErrMsg:'',
 
+        
+        selected1: '',
+        selected2: '',
+        message: '',
+
     },
+
+    methods:{
+        inputHandler(){
+        let array = [{selected1: '',
+        selected2: '',
+        message: '',}]
+      
+        array.join('')
+        console.log(array.join(''))
+             }
+        },
+
+    
 
     watch:{
         username: function () {

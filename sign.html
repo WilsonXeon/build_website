@@ -10,8 +10,8 @@
             加入會員
         </title>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        
 </head>
 
 
@@ -28,8 +28,8 @@
 
 <body>
     <div id="app">
-    <div class="sign">
-    <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
+        <div class="sign">
+        <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
         <form action="/member" method="post" class="signup">
 
                 <div class="invalid-feedback" v-if="this.usernameError === true">
@@ -57,22 +57,22 @@
                 
 
             <hr size="0.5px" width="80%">
-                <div class="select">
-                <!-- 用div把label和label包起來，才可以在CSS調整成同一行 -->
-                <label for="address" class="label">地址</label>
-                <select id="縣市1" class="select-control"></select>
-                <select id="鄉鎮市區1" class="select-control"></select>
+                <div class="select" >
+                    <div id="v-model-select">
+                 <!-- 用div把label和label包起來，才可以在CSS調整成同一行 -->
+                    <label for="address" class="label">地址</label>
+                    <select id="縣市1" v-model="selected1" class="select-control"></select>
+                    <select id="鄉鎮市區1" v-model="selected2" class="select-control"></select>
                 </div>
-
-                <input type="address-line1" class="form-control" name="address-line1" placeholder="詳細地址 如：仁義路四段12號之3" required />
-            
+                     <input type="address-line1" v-model="message" class="form-control" name="address-line1" placeholder="詳細地址 如：仁義路四段12號之3" required />
+                    </div>
             <hr size="0.5px" width="80%">
                 <div class="select">
                 <label for="bdayInput" class="label">生日</label>   
                 <input type="date" class="form-date" name="date" required /> 
                 </div>
                 
-                <div class="sub"><input type="submit" value="註冊"></div>
+                <div class="sub"><input type="submit" value="註冊" @click="inputHandler"></div>
             </form>
         
     </div>
@@ -92,10 +92,12 @@
             //後面四個參數分別是兩個下拉選單的預設文字跟值
            AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
        }
-       function show() {
-            //取出指定縣市及鄉鎮市區的下拉選單的值
-            alert(AddressSeleclList.ReturnSelectAddress('縣市1', '鄉鎮市區1'));
-        }
+    //    function show() {
+    //         //取出指定縣市及鄉鎮市區的下拉選單的值
+    //         alert(AddressSeleclList.ReturnSelectAddress('縣市1', '鄉鎮市區1'));
+    //     }
+
+      
      </script>
     <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>

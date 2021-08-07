@@ -28,9 +28,9 @@ var app = new Vue({
 
     methods:{
         inputHandler(){
-        let array = [{selected1: '',
-        selected2: '',
-        message: '',}]
+        let array = [this.selected1,
+        this.selected2,
+        this.message]
       
         array.join('')
         console.log(array.join(''))

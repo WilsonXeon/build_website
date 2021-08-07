@@ -96,7 +96,7 @@
 
 body {
   margin: 0;
-  background-image: url("https://raw.githubusercontent.com/WilsonXeon/build_website/pages/testimg/backimg.jpg");
+  background-image: url("https://github.com/WilsonXeon/build_website/blob/pages/testimg/backimg.jpg?raw=true");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;

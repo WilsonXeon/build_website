@@ -19,16 +19,21 @@ from login import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home),
-    path('home/', views.home),
     path('', views.login),
-    path('login/', views.login),
-    path('register/', views.register),
+    path('home/', views.home, name='home'),
+    path('login/', views.login, name='Login'),
+    path('logout', views.logout, name='Logout'),
+    path('register/', views.register, name='Register'),
     path('forget/', views.forget),
+    path('login/register/', views.register),
+    path('login/forget/', views.forget),
     path('shopping_cart/', views.shopping_cart),
     path('shopping_info/', views.shopping_info),
     path('user_ccard/', views.user_ccard),
     path('user_adr_edit/', views.user_adr_edit),
     path('user_edit/', views.user_edit),
-    path('user_password_edit', views.user_password_edit)
+    path('update/<str:pk>', views.update, name='Update'),
+    path('user_password_edit', views.user_password_edit),
+    path('error/', views.error)
+
 ]

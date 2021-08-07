@@ -11,7 +11,10 @@
             會員資料
         </title>
 </head>
+{% block content %}
 <body>
+{% csrf_token %}
+
 <input type="checkbox" name="" id="menu_control">
     <div class="header">
         <h1 class="logo">
@@ -54,7 +57,7 @@
             <div class="info">
                 <p ><i class="fas fa-truck"> 商品已到貨</i></p>
                 <p class="infoTip">訂單8431648463已到貨</p>
-                <a href=".html" class="buttonInfo">訂單詳情</a>
+                <a href="/error" class="buttonInfo">訂單詳情</a>
             </div>
 
 
@@ -66,7 +69,7 @@
             <div class="info">
                 <p><i class="fas fa-times"> 商品已取消</i></p>
                 <p class="infoTip">訂單7825536838已取消</p>
-                <a href=".html" class="buttonInfo">訂單詳情</a>
+                <a href="/error" class="buttonInfo">訂單詳情</a>
             </div>
         </div>
 
@@ -76,7 +79,7 @@
             <div class="info">
                 <p><i class="fas fa-dollar-sign"> 商品已退款</i></p>
                 <p class="infoTip">訂單7825536838已退款</p>
-                <a href=".html" class="buttonInfo">訂單詳情</a>
+                <a href="/error" class="buttonInfo">訂單詳情</a>
             </div>
         </div>
 
@@ -86,7 +89,7 @@
             <div class="info">
                 <p><i class="fas fa-clipboard-list"></i> 訂單已成立</i></p>
                 <p class="infoTip">訂單8676860866已成立</p>
-                <a href=".html" class="buttonInfo">訂單詳情</a>
+                <a href="/error" class="buttonInfo">訂單詳情</a>
             </div>
         </div>
 
@@ -102,4 +105,5 @@
 
  <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>
+{% endblock  %}
 </html>

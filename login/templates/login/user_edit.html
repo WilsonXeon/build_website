@@ -23,12 +23,14 @@
             <span>選單</span>
         </label>
     </div>
-
+{% block content %}
 <body>
+{% csrf_token %}
     <div class="wrap">
     <div class="list">
         <li>
             <a href="/user_edit"> ▎我的帳戶</a>
+
 
             <ui><a href="/user_edit"> ▏個人資料</ui></a>
             <ui> <a href="/user_ccard">▏我的信用卡</ui></a>
@@ -46,29 +48,34 @@
         </li>
     </div>
 
-        <form class="box1" action="{{link}}" method="post">
+        <form class="box1" action="" method="POST">
+            {% for try123 in signs %}
             <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-user"> 個人資料</i></p>
-            <div class="label_input">
+            <div >
                 <label class="label">姓名</label>
-                <input name="username" type="text" class="form-control" placeholder="如　陳ＸＸ" value="" required />
-            </div>
-            <div class="label_input">
+                <p style="font-size: 25px;font-weight: 800"><d class="form-control"> {{ try123.name }}</d></p>
+
                 <label class="label">信箱</label>
-                <input name="email" type="email" class="form-control" placeholder="如　adcd123@XXX.com" value="" required />
-            </form>
+                <p style="font-size: 25px;font-weight: 800"><d class="form-control"> {{ try123.email }}</d></p>
+
+
             <div class="label_input">
                 <label for="phoneInput" class="label">手機</label>
-                <input name="phone" type="phone" class="form-control" placeholder="如　0900123123" value="" pattern="[0-9\s]{10}" maxlength="10" required />
+                <p style="font-size: 25px;font-weight: 800"><d class="form-control"> {{ try123.tel }}</d></p>
             </div>
-            <div class="label_input">
+            <div>
                 <label for="bdayInput" class="label">生日</label>
-                <input name="date" type="date" class="form-control" value="" required />
-            </div>
-            <div class="button_div">
-                <input type="button" onclick="submit()" value="儲存變更" class="button"/>
-            </div>
-            </form>
+                <p style="font-size: 25px;font-weight: 800"><d class="form-control"> {{ try123.birth }}</d></p>
 
+            </div>
+
+
+            <div class="button_div"  >
+                 <a class="button"  href="{% url 'Update' try123.id %}" >_____________變更資料____________</a>
+            </div>
+
+        </form>
+            {% endfor %}
         </div>
     </div>
 
@@ -78,4 +85,5 @@
 
  <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>
+{% endblock  %}
 </html>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                 <th>帳號</th>
+                 <th>名字</th>
+                 <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for try123 in signs %}
+        <tr>
+            <td>{{ try123.username }}</td>
+            <td>{{ try123.name }}</td>
+            <td>{{ try123.adress }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+
 </head>
 <body>
-$END$
+
 </body>
 </html>

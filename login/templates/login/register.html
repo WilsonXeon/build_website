@@ -29,12 +29,13 @@
 
 <body>
 {% block content %}
+
     <div id="app">
     <div class="sign">
     <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
         <form action="" method="post" class="signup">
          {% csrf_token %}
-
+                {% verbatim %}
                 <div class="invalid-feedback">
                     {{ userErrMsg }}
                 </div>
@@ -48,6 +49,7 @@
                 </div>
                 <div>
                     <label for="password" class="label">密碼 </label>
+
                      <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="含大小寫英文及數字，最多10位" required />
                 </div>
 
@@ -75,9 +77,11 @@
 
             <hr size="0.5px" width="80%">
 
-                <div>
-                    <label for="address" class="label">地址 </label>
-
+                <div class="select">
+                <!-- 用div把label和label包起來，才可以在CSS調整成同一行 -->
+                <label for="address" class="label">地址</label>
+                <select id="縣市1" class="select-control"></select>
+                <select id="鄉鎮市區1" class="select-control"></select>
                 </div>
 
                 <input type="adress" class="form-control" name="adress" placeholder="詳細地址 如：仁義路四段12號之3" required />
@@ -92,6 +96,7 @@
             </form>
 
     </div>
+    {% endverbatim %}
 </div>
 
 

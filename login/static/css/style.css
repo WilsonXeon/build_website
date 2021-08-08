@@ -74,10 +74,8 @@
   right: 0;
   left: 0;
   margin: auto;
-  -webkit-box-shadow: 0 12px 0 #FBF3ED,
- 0 -12px 0 #FBF3ED;
-          box-shadow: 0 12px 0 #FBF3ED,
- 0 -12px 0 #FBF3ED;
+  -webkit-box-shadow: 0 12px 0 #FBF3ED, 0 -12px 0 #FBF3ED;
+          box-shadow: 0 12px 0 #FBF3ED, 0 -12px 0 #FBF3ED;
 }
 
 .menu_btn span {
@@ -96,7 +94,7 @@
 
 body {
   margin: 0;
-  background-image: url("https://github.com/WilsonXeon/build_website/blob/pages/testimg/backimg.jpg?raw=true");
+  background-image: url("../build_website/testimg/backimg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;

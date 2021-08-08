@@ -152,6 +152,7 @@ body{
         }
       }
   }
+
         
   .box1{
         position: relative;
@@ -181,6 +182,16 @@ body{
         flex-direction: column;
         align-content: center;
         }
+        //新增--欄位容器包含標籤與欄位
+        .labelInput{
+          margin-top: pxToVh(30);
+          margin-bottom: pxToVh(30);
+          font-size: pxToVw(14);
+          color: #5F4B3F;
+          .labels{
+            margin-right: pxToVw(30);
+          }
+        }
         // 表單欄位
         .form-control{
           color: #5F4B3F;
@@ -201,12 +212,15 @@ body{
           color:#5F4B3F;
           font-size: pxToVw(12);
         }
+        //8/8修改
           .button{
-            
             background-color: #A18559;
+            text-decoration: none;
             border-style: none;
             height: pxToVh(50);
             width: pxToVw(200);
+            line-height: pxToVh(50);
+            text-align: center;
             border-radius: 40px;
             margin: pxToVw(20);
             font-size: pxToVw(12);

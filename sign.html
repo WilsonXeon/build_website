@@ -35,44 +35,60 @@
                 <div class="invalid-feedback" v-if="this.usernameError === true">
                     {{ userErrMsg }}
                 </div>
-                <input type="text" class="form-control" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="帳號　含大小寫英文數字，最多10位" required />
+                <div class="label_input">
+                <label class="label">　　帳號</label>
+                <input type="text" class="form-control" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="含大小寫英文數字，最多10位" required />
+                </div>
 
                 <div class="invalid-feedback" v-if="this.passwordError === true">
                     {{ passErrMsg }}
                 </div>
-                <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="密碼　含大小寫英文及數字，最多10位" required />
-
+                <div class="label_input">
+                <label class="label">　　密碼</label>
+                <input type="password" class="form-control" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="含大小寫英文數字，最多10位" required />
+                </div>
                 
-                <input type="text" class="form-control" name="name" placeholder="姓名　陳ＸＸ" required/>
-               
+                <div class="label_input">
+                <label class="label">　　姓名</label>
+                <input type="text" class="form-control" name="name" placeholder="如：陳曉明" required/>
+                </div>
+
                 <div class="invalid-feedback" v-if="this.emailError === true">
                     {{ emailErrMsg }}
                 </div>
-                <input type="email" class="form-control" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="信箱　adcd123@XXX.com" required />
+                <div class="label_input">
+                <label class="label">　　信箱</label>
+                <input type="email" class="form-control" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="如：adc123@.gmail.com" required />
+                </div>
 
                 <div class="invalid-feedback" v-if="this.telError === true">
                     {{ telErrMsg }}
                 </div>
-                <input type="tel" class="form-control" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="手機號碼　0900123123" required />
-                
+                <div class="label_input">
+                <label class="label">手機號碼</label>
+                <input type="tel" class="form-control" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="如：0900123123" required />
+                </div>
 
             <hr size="0.5px" width="80%">
-                <div class="select" >
+                <div class="select">
                     <div id="v-model-select">
                  <!-- 用div把label和label包起來，才可以在CSS調整成同一行 -->
-                    <label for="address" class="label">地址</label>
+                    <label for="address" class="label">　　地址</label>
                     <select id="縣市1" v-model="selected1" class="select-control"></select>
                     <select id="鄉鎮市區1" v-model="selected2" class="select-control"></select>
                 </div>
-                     <input type="address-line1" v-model="message" class="form-control" name="address-line1" placeholder="詳細地址 如：仁義路四段12號之3" required />
+                        <div class="label_input">
+                            <label class="label">詳細地址</label>
+                            <input type="address-line1" v-model="message" class="form-control" name="address-line1" placeholder="如：仁義路四段12號之3" required />
+                        </div>
                     </div>
             <hr size="0.5px" width="80%">
                 <div class="select">
-                <label for="bdayInput" class="label">生日</label>   
-                <input type="date" class="form-date" name="date" required /> 
+                <label for="bdayInput" class="label">　　生日</label>   
+                <input type="date" class="form-control" name="date" required /> 
                 </div>
                 
-                <div class="sub"><input type="submit" value="註冊" @click="inputHandler"></div>
+                <button class="sub" value="註冊" @click="inputHandler">註冊</button>
             </form>
         
     </div>

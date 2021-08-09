@@ -116,8 +116,6 @@ body{margin: 0;
         }
         .sub{
             //註冊鈕
-            input[type="submit"]{
-                
                 top: 100%;
                 margin-top: pxToVh(10);
                 margin-bottom: pxToVh(10);
@@ -134,47 +132,49 @@ body{margin: 0;
                     width: 200px;
                     font-size: 16px;
                 }
-                
+                &:hover{
+                    background-color:#fff3eb;
+                    color: #cc9e4e;
+                    box-shadow: 0 0 30px #ffffff;
+                    border: pxToVw(2) solid #cc9e4e;
+                    transition: 0.5s;
+                }
             }
-            input[type="submit"]:hover{
-                background-color:#fff3eb;
-                color: #cc9e4e;
-                box-shadow: 0 0 30px #ffffff;
-                border: pxToVw(2) solid #cc9e4e;
-                transition: 0.5s;
-            }
+           
         }
     .signup{
         //表單
     background-color:rgba(255, 243, 235,0.5);
     width: pxToVw(400);
-    height: pxToVh(700);
+    height: pxToVh(650);
     margin-bottom: pxToVh(40);
     border-radius: 30px;
-    padding-top: pxToVh(30);
+    padding-top: pxToVh(50);
     padding-bottom: pxToVh(60);
     backdrop-filter: blur(5px);
     box-shadow: 0 0 10px gray;
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     @media (max-device-width: 420px) {
         width: 300px;
     }
     .label{
     color: #5c513d;
-    font-size: pxToVw(16);
+    font-size: pxToVw(14);
     font-weight: 500;
+    text-align: left;
     }
     
         input{//輸入欄位
             letter-spacing: 3px;
             background-color: #fff3eb;
             color: #cc9e4e;
-            width: pxToVw(300);
+            width: pxToVw(250);
             height: pxToVh(40);
             padding: pxToVh(5);
             margin-bottom: pxToVh(5);
+            margin-left: pxToVw(10);
             border-style:none;
             border-top-left-radius: 20px;
             border-bottom-right-radius: 20px;
@@ -196,13 +196,12 @@ body{margin: 0;
         .select-control{
             background-color: #fff3eb;
             color: #5F4B3F;
-            width: pxToVw(130);
+            width: pxToVw(125);
             height: pxToVh(50);
             padding: pxToVh(10);
             margin-top: pxToVh(20);
             margin-bottom: pxToVh(20);
             margin-left: pxToVw(10);
-            
             border-style:none;
             border-top-left-radius: 20px;
             border-bottom-right-radius: 20px;
@@ -240,4 +239,3 @@ body{margin: 0;
             color: #5F4B3F;
             margin-top: pxToVh(10);
         }
-}

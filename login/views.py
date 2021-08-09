@@ -1,13 +1,9 @@
 from django.shortcuts import render, redirect
 from . import models
-from .models import try123
-from .forms import signModelForm
+from .models import UserDATA
+from .forms import signModelForm, editModelForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-def index(request):
-    signs = try123.objects.filter(id=1)
-    return render(request, "login/index.html", {"signs": signs})
-
 
 def login(request):
     if request.method == 'POST':
@@ -18,7 +14,7 @@ def login(request):
             # 密碼長度驗證
             # 更多的其它驗證.....
             try:
-                user = models.sign.objects.get(username=username)
+                user = models.UserDATA.objects.get(username=username)
             except:
                 message = '使用者不存在！'
                 return render(request, 'login/login.html', {'message': message})
@@ -35,6 +31,7 @@ def login(request):
 
 
 def register(request):
+
     form = signModelForm()
 
     if request.method == "POST":
@@ -50,11 +47,11 @@ def register(request):
 
 
 def update(request, pk):
-    signs = try123.objects.get(id=pk)
-    form = signModelForm(instance=signs)
+    signs = UserDATA.objects.get(id=pk)
+    form = editModelForm(instance=signs)
 
     if request.method == "POST":
-        form = signModelForm(request.POST, instance=signs)
+        form = editModelForm(request.POST, instance=signs)
         if form.is_valid():
             form.save()
             return redirect('/user_edit')
@@ -66,7 +63,7 @@ def update(request, pk):
 
 
 def user_edit(request):
-    signs = try123.objects.filter(id=1)
+    signs = UserDATA.objects.filter(id=3)
     return render(request, 'login/user_edit.html',  {"signs": signs})
 
 
@@ -105,9 +102,6 @@ def user_adr_edit(request):
 
 def user_ccard(request):
     return render(request, 'login/user_ccard.html')
-
-
-
 
 
 def user_password_edit(request):

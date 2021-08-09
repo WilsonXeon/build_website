@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import sign, product, try123
+from .models import sign, product, UserDATA
 
 
 # Register your models here.
@@ -14,6 +14,6 @@ class productAdmin(admin.ModelAdmin):
 admin.site.register(product, productAdmin)
 
 
-class try123Admin(admin.ModelAdmin):
-    list_display = ('id', 'name')
-admin.site.register(try123, try123Admin)
+class UserDATAAdmin(admin.ModelAdmin):
+    list_display = ('id', 'username', 'name', 'tel')  # 顯示欄位
+admin.site.register(UserDATA, UserDATAAdmin)

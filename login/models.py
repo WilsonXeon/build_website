@@ -19,12 +19,12 @@ class sign(models.Model):
     adress = models.CharField(max_length=100)
     birth = models.CharField(max_length=10)
 
-#使用者資料
-class try123(models.Model):
+
+class UserDATA(models.Model):
     username = models.CharField(max_length=128, blank=False, null=False, unique=True)
     password = models.CharField(max_length=256)
     name = models.CharField(max_length=50)
     email = models.EmailField(blank=False, null=False)
     tel = models.CharField(max_length=20)
-    adress = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
     birth = models.CharField(max_length=10)

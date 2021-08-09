@@ -49,34 +49,34 @@
     </div>
 
         <form class="box1" action="" method="POST">
-            {% for try123 in signs %}
+            {% for UserDATA in signs %}
             <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-user"> 個人資料</i></p>
             <div >
                 <div class="labelInput">
                 <label class="labels">姓名</label>
-                <d> {{ try123.name }}</d>
+                <d> {{ UserDATA.name }}</d>
                 </div>
 
                 <div class="labelInput">
                 <label class="labels">信箱</label>
-                <d> {{ try123.email }}</d>
+                <d> {{ UserDATA.email }}</d>
                 </div>
 
                 <div class="labelInput">
                 <label for="phoneInput" class="labels">手機</label>
-                <d> {{ try123.tel }}</d>
+                <d> {{ UserDATA.tel }}</d>
                 </div>
             
                 <div class="labelInput">
                 <label for="bdayInput" class="labels">生日</label>
-                <d> {{ try123.birth }}</d>
+                <d> {{ UserDATA.birth }}</d>
                 </div>
 
             </div>
 
 
             <div class="button_div"  >
-                 <a class="button"  href="{% url 'Update' try123.id %}" >變更資料</a>
+                 <a class="button"  href="{% url 'Update' UserDATA.id %}" >變更資料</a>
             </div>
 
         </form>

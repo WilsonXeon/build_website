@@ -31,7 +31,7 @@ urlpatterns = [
     path('shopping_info/', views.shopping_info),
     path('user_ccard/', views.user_ccard),
     path('user_adr_edit/', views.user_adr_edit),
-    path('user_edit/', views.user_edit),
+    path('user_edit/', views.user_edit, name="edit"),
     path('update/<str:pk>', views.update, name='Update'),
     path('user_password_edit', views.user_password_edit),
     path('error/', views.error)

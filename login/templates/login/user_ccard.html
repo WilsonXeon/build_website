@@ -23,12 +23,14 @@
             <span>選單</span>
         </label>
     </div>
-
+{% block content %}
 <body>
+{% csrf_token %}
     <div class="wrap">
     <div class="list">
         <li>
             <a href="/user_edit"> ▎我的帳戶</a>
+
 
             <ui><a href="/user_edit"> ▏個人資料</ui></a>
             <ui> <a href="/user_ccard">▏我的信用卡</ui></a>
@@ -46,44 +48,47 @@
         </li>
     </div>
 
-        <form novalidate="novalidate" class="box2">
+        <form class="box1" action="" method="POST">
+            {% for UserDATA in signs %}
             <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fab fa-cc-visa"> 我的信用卡</i></p>
-            <div class="label_input">
-                <label class="label_name">持卡人姓名</label>
-                <input type="ccname" name="name" class="form-name" autocomplete="cc-name" placeholder="Name" required/>
-            </div>
-            <div class="label_input_number">
-                <label class="label_card">卡號</label>
-                <input type="cardnumber" name="card_number" class="form-control" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="cc-number" maxlength="4" placeholder="1234" required/>-
-                <input type="cardnumber" name="card_number" class="form-control" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="cc-number" maxlength="4" placeholder="1234" required/>-
-                <input type="cardnumber" name="card_number" class="form-control" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="cc-number" maxlength="4" placeholder="1234" required/>-
-                <input type="cardnumber" name="card_number" class="form-control" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="cc-number" maxlength="4" placeholder="1234" required/>
-            </div>
-            <div class="label_input">
-                <label class="label_date">到期日</label>
-                <input type="text" name="expiredMonth" class="form-control" pattern="[0-9\s]{2}" autocomplete="cc-number" maxlength="2" placeholder="MM" required/>/
-                <input type="text" name="expiredYear" class="form-control" pattern="[0-9\s]{2}" autocomplete="cc-number" maxlength="2" placeholder="YY" required/>
+            <div >
+                <div class="labelInput">
+                <label class="labels">持卡人姓名</label>
+                <d> {{ UserDATA.card_name }}</d>
             </div>
 
-            <div class="label_input">
-                <label for="frmCCCVC" class="label_cvc">CVC驗證</label>
-                <input name="cvc" id="frmCCCVC"  class="form-control" required autocomplete="cc-csc" pattern="[0-9\s]{3}" autocomplete="cc-number" maxlength="3" placeholder="123" required/>
+            <div class="labelInput">
+                <label class="labels">信用卡卡號</label>
+                <d> {{ UserDATA.card_number1 }}-{{ UserDATA.card_number2 }}-{{ UserDATA.card_number3 }}-{{ UserDATA.card_number4 }}</d>
             </div>
-            <div class="button_div">
-                <input type="button" onclick="submit()" value="確認卡片" class="button"/>
+
+            <div class="labelInput">
+                <label for="phoneInput" class="labels">卡片到期日</label>
+                <d> {{ UserDATA.card_date1 }}/{{ UserDATA.card_date2 }}</d>
             </div>
-            </form>
+
+            <div class="labelInput">
+                <label for="phoneInput" class="labels">　CVC驗證</label>
+                <d> {{ UserDATA.card_CVC }}</d>
+            </div>
+
+            </div>
 
 
+            <div class="button_div"  >
+                 <a class="button"  href="{% url 'UpdateCard' UserDATA.id %}" >變更資料</a>
+            </div>
+
+        </form>
+            {% endfor %}
         </div>
-
-
     </div>
-    <script src="{% static '/css/index.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-<script src="http://jquerycreditcardvalidator.com/jquery.creditCardValidator.js"></script>
+    <script src="{% static '/css/index.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
  <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>
+{% endblock  %}
 </html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from . import models
 from .models import UserDATA
-from .forms import signModelForm, editModelForm
+from .forms import signModelForm, editModelForm, cardModelForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
@@ -43,6 +43,7 @@ def register(request):
 
         'form': form
     }
+
     return render(request, 'login/register.html', context)
 
 
@@ -61,9 +62,23 @@ def update(request, pk):
     }
     return render(request, 'login/update.html', context)
 
+def updateCard(request, pk):
+    signs = UserDATA.objects.get(id=pk)
+    form = cardModelForm(instance=signs)
+
+    if request.method == "POST":
+        form = cardModelForm(request.POST, instance=signs)
+        if form.is_valid():
+            form.save()
+            return redirect('/user_ccard')
+    context = {
+        'form': form
+    }
+    return render(request, 'login/updateCard.html', context)
+
 
 def user_edit(request):
-    signs = UserDATA.objects.filter(id=3)
+    signs = UserDATA.objects.filter(id=2)
     return render(request, 'login/user_edit.html',  {"signs": signs})
 
 
@@ -101,7 +116,9 @@ def user_adr_edit(request):
 
 
 def user_ccard(request):
-    return render(request, 'login/user_ccard.html')
+    signs = UserDATA.objects.filter(id=1)
+
+    return render(request, 'login/user_ccard.html', {"signs": signs})
 
 
 def user_password_edit(request):

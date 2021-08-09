@@ -4,7 +4,7 @@ from .models import UserDATA, sign
 class signModelForm(forms.ModelForm):
     class Meta:
         model = UserDATA
-        fields = '__all__'
+        fields = ('username', 'password', 'name', 'email', 'tel', 'address', 'birth')
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:400px', "placeholder": "含大小寫英文數字，最多10位"}),
             'password': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:400px', "placeholder": "含大小寫英文及數字，最多10位"}),
@@ -35,9 +35,36 @@ class editModelForm(forms.ModelForm):
             'tel': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:400px'}),
             'birth': forms.TextInput(attrs={'type': 'date', 'class': 'form-control', 'style': 'width:400px'})
         }
-        labels= {
+        labels = {
             'name': '姓名',
             'email': '信箱',
             'tel': '手機',
             'birth': '生日'
+        }
+
+class cardModelForm(forms.ModelForm):
+    class Meta:
+        model = UserDATA
+        fields = ('card_name', 'card_number1', 'card_number2', 'card_number3', 'card_number4', 'card_date1'
+                  , 'card_date2', 'card_CVC')
+
+        widgets = {
+            'card_name': forms.TextInput(attrs={'class': '', 'style': 'width:100px'}),
+            'card_number1': forms.TextInput(attrs={'class': '', 'style': 'width:29.5px'}),
+            'card_number2': forms.TextInput(attrs={'class': '', 'style': 'width:29.5px'}),
+            'card_number3': forms.TextInput(attrs={'class': '', 'style': 'width:29.5px'}),
+            'card_number4': forms.TextInput(attrs={'class': '', 'style': 'width:29.5px'}),
+            'card_date1': forms.TextInput(attrs={'class': '', 'style': 'width:16.5px'}),
+            'card_date2': forms.TextInput(attrs={'class': '', 'style': 'width:16.5px'}),
+            'card_CVC': forms.TextInput(attrs={'class': '', 'style': 'width:23px'}),
+        }
+        labels = {
+            'card_name': '持卡人姓名',
+            'card_number1': '信用卡卡號',
+            'card_number2': '',
+            'card_number3': '',
+            'card_number4': '',
+            'card_date1': '卡片到期日',
+            'card_date2': '',
+            'card_CVC': '　CVC驗證'
         }

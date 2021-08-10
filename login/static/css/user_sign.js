@@ -26,13 +26,23 @@ var app = new Vue({
 
     methods:{
         inputHandler(){
-        let array = [{selected1: '',
-        selected2: '',
-        message: '',}]
-      
-        array.join('')
-        console.log(array.join(''))
-             }
+        let array = [this.selected1,
+            this.selected2,
+            this.message]
+        let that =this
+        array = array.join('')
+        console.log(array)
+
+        if(!array) return
+
+        axios.post('http://localhost:8080/admin', array)
+        .then(res => {
+            console.log(that.array=res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+      },
         },
 
     

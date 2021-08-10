@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from . import models
 from .models import UserDATA
 from .forms import signModelForm, editModelForm, cardModelForm
@@ -122,4 +123,5 @@ def user_ccard(request):
 
 
 def user_password_edit(request):
+
     return render(request, 'login/user_password_edit.html')

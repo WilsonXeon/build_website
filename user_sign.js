@@ -19,22 +19,31 @@ var app = new Vue({
         telError: false,
         telErrMsg:'',
 
-        
-        selected1: '',
-        selected2: '',
-        message: '',
-
+        selected1:'',
+        selected2:'',
+        message:'',
     },
 
     methods:{
+
         inputHandler(){
         let array = [this.selected1,
-        this.selected2,
-        this.message]
-      
-        array.join('')
-        console.log(array.join(''))
-             }
+            this.selected2,
+            this.message]
+        let that =this
+        array = array.join('')
+        console.log(array)
+
+        if(!array) return
+        
+        axios.post('輸入URL', array)
+        .then(res => {
+            console.log(that.array=res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+      },
         },
 
     

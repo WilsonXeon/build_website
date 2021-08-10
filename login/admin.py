@@ -15,5 +15,5 @@ admin.site.register(product, productAdmin)
 
 
 class UserDATAAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'name', 'tel')  # 顯示欄位
+    list_display = ('id', 'username', 'name', 'tel', 'address1', 'address2', 'address3')  # 顯示欄位
 admin.site.register(UserDATA, UserDATAAdmin)

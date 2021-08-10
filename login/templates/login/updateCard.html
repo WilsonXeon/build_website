@@ -51,7 +51,31 @@
 
             <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fab fa-cc-visa"> 我的信用卡</i></p>
             {% csrf_token %}
-            {{ form }}
+
+            <div>
+                <label class="labels">持卡人姓名:</label>
+                {{ form.card_name }}
+            </div>
+
+            <div>
+                <label class="labels">信用卡卡號:</label>
+                {{ form.card_number1 }}-{{ form.card_number2 }}-{{ form.card_number3 }}-{{ form.card_number4 }}
+            </div>
+
+            <div>
+                <label class="labels">卡片到期日:</label>
+                {{ form.card_date1 }}-{{ form.card_date2}}
+
+            </div>
+
+            <div>
+                <label class="labels">　CVC驗證:</label>
+                {{ form.card_CVC }}
+            </div>
+
+
+
+
 
 
 

@@ -85,13 +85,13 @@
                 <div class="select">
                 <!-- 用div把label和label包起來，才可以在CSS調整成同一行 -->
                     <label for="address" class="label">　　地址</label>
-                        <select id="縣市1" v-model="selected1" class="select-control"></select>
-                        <select id="鄉鎮市區1" v-model="selected2" class="select-control"></select>
+                        <select id="縣市1" v-model="selected1" name ="address1" class="select-control"></select>
+                        <select id="鄉鎮市區1" v-model="selected2" name ="address2"  class="select-control"></select>
                     </div>
 
                     <div class="label_input">
                         <label class="label">詳細地址</label>
-                        <input type="address" v-model="message" class="form-control" name="address" placeholder="如：仁義路四段12號之3" required />
+                        <input type="address3" v-model="message" name ="address3"  class="form-control" placeholder="如：仁義路四段12號之3" required />
                     </div>
 
             <!--生日-->

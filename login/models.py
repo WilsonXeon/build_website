@@ -9,7 +9,7 @@ class product(models.Model):
     item_amount = models.DecimalField(max_digits=4, decimal_places=0)
     item_price = models.DecimalField(max_digits=4, decimal_places=0)
 
-#使用者資料
+
 class sign(models.Model):
     username = models.CharField(max_length=128, blank=False, null=False, unique=True)
     password = models.CharField(max_length=256)
@@ -19,14 +19,16 @@ class sign(models.Model):
     adress = models.CharField(max_length=100)
     birth = models.CharField(max_length=10)
 
-
+#使用者資料
 class UserDATA(models.Model):
     username = models.CharField(max_length=128, blank=False, null=False, unique=True)
     password = models.CharField(max_length=256)
     name = models.CharField(max_length=50)
     email = models.EmailField(blank=False, null=False)
     tel = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
+    address1 = models.CharField(max_length=3)
+    address2 = models.CharField(max_length=6)
+    address3 = models.CharField(max_length=100)
     birth = models.CharField(max_length=10)
     card_name = models.CharField(max_length=50)
     card_number1 = models.CharField(max_length=4)

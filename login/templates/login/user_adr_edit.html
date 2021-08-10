@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../static/css/editstyle.css" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <title>
             會員資料
         </title>
+
 </head>
 
 <input type="checkbox" name="" id="menu_control">
@@ -22,63 +23,55 @@
             <span>選單</span>
         </label>
     </div>
-
-<body>
 {% block content %}
+<body>
+{% csrf_token %}
     <div class="wrap">
-        <div class="list">
-            <li>
-                <a href="/user_edit"> ▎我的帳戶</a>
+    <div class="list">
+        <li>
+            <a href="/user_edit"> ▎我的帳戶</a>
 
-                <ui><a href="/user_edit"> ▏個人資料</ui></a>
-                <ui> <a href="/user_ccard">▏我的信用卡</ui></a>
-                <ui> <a href="/user_adr_edit"> ▏寄件地址</ui></a>
-                <ui> <a href="/user_password_edit"> ▏更改密碼</ui></a>
 
-            </li>
+            <ui><a href="/user_edit"> ▏個人資料</ui></a>
+            <ui> <a href="/user_ccard">▏我的信用卡</ui></a>
+            <ui> <a href="/user_adr_edit"> ▏寄件地址</ui></a>
+            <ui> <a href="/user_password_edit"> ▏更改密碼</ui></a>
 
-            <li>
-                <a href="/shopping_cart">  ▎購物清單</a>
-            </li>
+        </li>
 
-            <li>
-                <a href="/shopping_info"> ▎通知一覽</a>
-            </li>
-        </div>
+        <li>
+            <a href="/shopping_cart">  ▎購物清單</a>
+        </li>
 
-                <form class="box3">
-                    <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-map-marker-alt"> 寄件地址</i></p>
-                        <select id="縣市1" class="select-control" required></select>
-
-                        <select id="鄉鎮市區1" class="select-control" required></select>
-
-                        <input type="text" class="form-control" autocomplete="address-level1" value="" placeholder="詳細地址 如：仁義路四段12號之3" required/>
-                    <div class="button_div">
-                        <input type="button" onclick="show()" value="儲存地址" class="button"/>
-                    </div>
-                    </form>
+        <li>
+            <a href="/shopping_info"> ▎通知一覽</a>
+        </li>
     </div>
 
+        <form class="box1" action="" method="POST">
+            {% for UserDATA in signs %}
+            <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-map-marker-alt"> 寄件地址</i></p>
+            <div >
+                <div class="labelInput">
+                <label class="labels">地址:</label>
+                <d> {{ UserDATA.address1 }}{{ UserDATA.address2 }}{{ UserDATA.address3 }}</d>
+            </div>
 
 
-    <script src="{% static '/css/visa.js' %}"></script>
+
+            <div class="button_div"  >
+                 <a class="button"  href="{% url 'UpdateAddress' UserDATA.id %}" >變更資料</a>
+            </div>
+
+        </form>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{% static '/css/index.js' %}"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-    window.onload = function () {
-        //當頁面載完之後，用AddressSeleclList.Initialize()，
-        //傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
-        AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
-        //後面四個參數分別是兩個下拉選單的預設文字跟值
-       AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
-   }
-   function show() {
-        //取出指定縣市及鄉鎮市區的下拉選單的值
-        alert(AddressSeleclList.ReturnSelectAddress('縣市1', '鄉鎮市區1'));
-    }
- </script>
-<script src="{% static '/css/index.js' %}"></script>
  <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>
 {% endblock  %}

@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from . import models
 from .models import UserDATA
-from .forms import signModelForm, editModelForm, cardModelForm
+from .forms import signModelForm, editModelForm, cardModelForm, addressModelForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
@@ -28,11 +27,10 @@ def login(request):
                 return render(request, 'login/login.html', {'message': message})
         else:
             return render(request, 'login/login.html')
-    return render(request, 'login/login.html')
+    return render(request, 'login/login.html', locals())
 
 
 def register(request):
-
     form = signModelForm()
 
     if request.method == "POST":
@@ -48,7 +46,7 @@ def register(request):
     return render(request, 'login/register.html', context)
 
 
-def update(request, pk):
+def updatePerson(request, pk):
     signs = UserDATA.objects.get(id=pk)
     form = editModelForm(instance=signs)
 
@@ -61,7 +59,7 @@ def update(request, pk):
 
         'form': form
     }
-    return render(request, 'login/update.html', context)
+    return render(request, 'login/updatePerson.html', context)
 
 def updateCard(request, pk):
     signs = UserDATA.objects.get(id=pk)
@@ -78,8 +76,23 @@ def updateCard(request, pk):
     return render(request, 'login/updateCard.html', context)
 
 
+def updateAddress(request, pk):
+    signs = UserDATA.objects.get(id=pk)
+    form = addressModelForm(instance=signs)
+
+    if request.method == "POST":
+        form = addressModelForm(request.POST, instance=signs)
+        if form.is_valid():
+            form.save()
+            return redirect('/user_adr_edit')
+    context = {
+        'form': form
+    }
+    return render(request, 'login/updateAddress.html', context)
+
+
 def user_edit(request):
-    signs = UserDATA.objects.filter(id=2)
+    signs = UserDATA.objects.filter(id=1)
     return render(request, 'login/user_edit.html',  {"signs": signs})
 
 
@@ -113,7 +126,8 @@ def shopping_info(request):
 
 
 def user_adr_edit(request):
-    return render(request, 'login/user_adr_edit.html')
+    signs = UserDATA.objects.filter(id=1)
+    return render(request, 'login/user_adr_edit.html', {"signs": signs})
 
 
 def user_ccard(request):
@@ -123,5 +137,5 @@ def user_ccard(request):
 
 
 def user_password_edit(request):
-
-    return render(request, 'login/user_password_edit.html')
+    signs = UserDATA.objects.filter(id=1)
+    return render(request, 'login/user_password_edit.html', {"signs": signs})

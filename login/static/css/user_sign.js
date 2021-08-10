@@ -9,6 +9,8 @@ var app = new Vue({
         passwordError: false,
         passErrMsg: '',
 
+        name:'',
+
         email: '',
         emailError: false,
         emailErrMsg: '',
@@ -17,32 +19,32 @@ var app = new Vue({
         telError: false,
         telErrMsg:'',
 
-        
-        selected1: '',
-        selected2: '',
-        message: '',
+        selected1:'',
+        selected2:'',
+        message:'',
 
+        date:'',
+        userdata:[]
     },
 
     methods:{
+
         inputHandler(){
-        let array = [this.selected1,
+
+        let address = [this.selected1,
             this.selected2,
             this.message]
-        let that =this
-        array = array.join('')
-        console.log(array)
-
-        if(!array) return
-
-        axios.post('http://localhost:8080/admin', array)
+        address = address.join('')
+        let that = this
+        get('/admin/', {date:'2021-08-10'})
         .then(res => {
-            console.log(that.array=res);
+            that.userdata.push(res.data)
+            that.admin.push(res.data)
         })
         .catch(err => {
             console.log(err);
         });
-      },
+        },
         },
 
     

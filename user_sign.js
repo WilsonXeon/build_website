@@ -11,6 +11,8 @@ var app = new Vue({
         passwordError: false,
         passErrMsg: '',
 
+        name:'',
+
         email: '',
         emailError: false,
         emailErrMsg: '',
@@ -22,31 +24,31 @@ var app = new Vue({
         selected1:'',
         selected2:'',
         message:'',
+
+        date:'',
+        userdata:[]
     },
 
     methods:{
 
         inputHandler(){
+        
         let address = [this.selected1,
             this.selected2,
             this.message]
-        let that =this
         address = address.join('')
-        console.log(address)
-
-        if(!address) return
-        
-        axios.post('輸入URL', address)
+        let that = this
+        axios.post('http://localhost:8080/admin/login/userdata', {date:'2021-08-10'})
         .then(res => {
-            console.log(that.address=res);
+            that.userdata.push(res.data)
+            that.admin.push(res.data)
         })
         .catch(err => {
             console.log(err);
         });
-      },
+        },
         },
 
-    
 
     watch:{
         username: function () {

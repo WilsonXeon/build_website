@@ -27,18 +27,18 @@ var app = new Vue({
     methods:{
 
         inputHandler(){
-        let array = [this.selected1,
+        let address = [this.selected1,
             this.selected2,
             this.message]
         let that =this
-        array = array.join('')
-        console.log(array)
+        address = address.join('')
+        console.log(address)
 
-        if(!array) return
+        if(!address) return
         
-        axios.post('輸入URL', array)
+        axios.post('輸入URL', address)
         .then(res => {
-            console.log(that.array=res);
+            console.log(that.address=res);
         })
         .catch(err => {
             console.log(err);

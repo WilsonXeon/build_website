@@ -30,7 +30,7 @@
     <div id="app">
         <div class="sign">
         <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
-        <form action="/member" method="post" class="signup">
+        <form action="" method="post" class="signup">
 
                 <div class="invalid-feedback" v-if="this.usernameError === true">
                     {{ userErrMsg }}
@@ -50,7 +50,7 @@
                 
                 <div class="label_input">
                 <label class="label">　　姓名</label>
-                <input type="text" class="form-control" name="name" placeholder="如：陳曉明" required/>
+                <input type="text" class="form-control" v-model="name" name="name" placeholder="如：陳曉明" required/>
                 </div>
 
                 <div class="invalid-feedback" v-if="this.emailError === true">
@@ -85,10 +85,10 @@
             <hr size="0.5px" width="80%">
                 <div class="select">
                 <label for="bdayInput" class="label">　　生日</label>   
-                <input type="date" class="form-control" name="date" required /> 
+                <input type="date" class="form-control" v-model="date" name="date" required /> 
                 </div>
                 
-                <button class="sub" value="註冊" @click="inputHandler">註冊</button>
+                <button class="sub" type="button" @click="inputHandler">註冊</button>
             </form>
         
     </div>

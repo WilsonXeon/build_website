@@ -24,29 +24,32 @@ var app = new Vue({
         message:'',
 
         date:'',
-        userdata:[]
     },
 
     methods:{
 
         inputHandler(){
 
-        let address = [this.selected1,
-            this.selected2,
-            this.message]
-        address = address.join('')
-        let that = this
-        get('/admin/', {date:'2021-08-10'})
+        let formData = {
+            username: this.username,
+            password: this.password,
+            name: this.name,
+            email: this.email,
+            tel: this.tel,
+            address: [this.selected1,this.selected2,this.message].join(''),
+            date: this.date
+            };
+
+
+        axios.post('', { formData })
         .then(res => {
-            that.userdata.push(res.data)
-            that.admin.push(res.data)
+            console.log(res)
         })
         .catch(err => {
             console.log(err);
         });
         },
         },
-
     
 
     watch:{

@@ -58,7 +58,7 @@
             <!--姓名-->
                 <div class="label_input">
                     <label class="label">　　姓名</label>
-                    <input type="text" class="form-control" name="name" placeholder="如：陳曉明" required/>
+                    <input type="text" class="form-control" v-model="name" name="name" placeholder="如：陳曉明" required/>
                 </div>
 
             <!--信箱-->
@@ -98,10 +98,11 @@
             <hr size="0.5px" width="80%">
                 <div class="select">
                     <label for="bdayInput" class="label">　　生日</label>
-                    <input type="date" class="form-control" name="birth" required />
+                    <input type="date" class="form-control" v-model="date" name="birth" required />
+
                 </div>
 
-                <button class="sub" value="註冊" @click="inputHandler">註冊</button>
+                <button class="sub" type="button" @click="inputHandler">註冊</button>
 
             </form>
 

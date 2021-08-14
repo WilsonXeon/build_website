@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
 </head>
+<body>
 
 <input type="checkbox" name="" id="menu_control">
     <div class="header">
@@ -47,374 +48,81 @@
         
     </div>
 
-    <a href="#"><img src="../build_website/testimg/up-arrow.png" class="gotop"></a>
 
-<body>
-        <div class="wrap">
+        <div class="wrap" id="app">
             
             <div class="list">
-                    <li>
-                        <a href="#rice"> ▎鮮貨食材</a>
-                        <ui><a href="#rice"> ▏優質好米</ui></a>
-                        <ui> <a href="#vegetable"> ▏新鮮蔬果</ui></a>
-                        <ui> <a href="#meat"> ▏嚴選肉品</ui></a>
-                        
-                    </li>
-                    <li></li>
+                <li>
+                    <a href="#rice" @click="show = 'food'"> ▎鮮貨食材</a>
+                    <ui><a href="#rice" @click="show = 'rice'"> ▏優質好米</ui></a>
+                    <ui> <a href="#vegetable" @click="show = 'vegetable'"> ▏新鮮蔬果</ui></a>
+                    <ui> <a href="#meat" @click="show = 'meat'"> ▏嚴選肉品</ui></a>
                     
-                    <li>
-                        <a href="#snake"> ▎沏茶小食</a>
-                        <ui> <a href="#snake">▏餅乾點心</ui></a>
-                        <ui> <a href="#candy">▏果乾蜜餞</ui></a>
-                        <ui> <a href="#coffee"> ▏精品咖啡</ui></a>
-                        <ui> <a href="#tea"> ▏特級茶葉</ui></a>
-                    </li>
+                </li>
+                <li></li>
+                
+                <li>
+                    <a href="#snake" @click="show = 'dessert'"> ▎沏茶小食</a>
+                    <ui> <a href="#snake" @click="show = 'snake'">▏餅乾點心</ui></a>
+                    <ui> <a href="#candy" @click="show = 'candy'">▏果乾蜜餞</ui></a>
+                    <ui> <a href="#coffee" @click="show = 'coffee'"> ▏精品咖啡</ui></a>
+                    <ui> <a href="#tea" @click="show = 'tea'"> ▏特級茶葉</ui></a>
+                </li>
                 
              </div>
-             <!-- 白米標籤 -->
-            <div class="content" id="rice">
+             
+            <div class="content">
                 <div class="bannerContainer">
                     <img src="../build_website/testimg/蜂蜜.jpg" alt="蜂蜜優惠活動">
                     <img src="../build_website/testimg/芒果0.jpg" alt="芒果季開跑">
                     <img src="../build_website/testimg/芒果1.jpg" alt="芒果季開跑">
                 </div>
-                
-                <div class="topic">優質好米</div>
                
-                    <div class="container">
-                        <div class="row row-cols-6">
-                                <div class="col">
-                                <img src="../build_website/testimg/【霧峰區農會】五甲地香米.jpg" alt="【霧峰區農會】五甲地香米">
-                                <h1>【霧峰區農會】<br>五甲地香米</h1>
-                                <p>NT.280</p>
-                                <button>加入購物車</button>
-                                </div>
-                                <div class="col">
-                                <img src="../build_website/testimg/【霧峰區農會】越光米.jpg" alt="【霧峰區農會】越光米">
-                                <h1>【霧峰區農會】<br>越光米</h1>
-                                <p>NT.230</p>
-                                <button>加入購物車</button>
-                                </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【霧峰區農會】五甲地香米2KG.jpg" alt="【霧峰區農會】香米2KG">
-                                    <h1>【霧峰區農會】<br>香米2KG</h1>
-                                    <p>NT.300</p>
-                                    <button>加入購物車</button>
-                                </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【霧峰區農會】五甲地香米5KG.jpg" alt="【霧峰區農會】香米5KG">
-                                    <h1>【霧峰區農會】<br>香米5KG</h1>
-                                    <p>NT.320</p>
-                                    <button>加入購物車</button>
-                                </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【麻營農夫】越光米-白米.jpg" alt="【麻營農夫】越光米-白米">
-                                    <h1>【麻營農夫】<br>越光米-白米</h1>
-                                    <p>NT.100</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【麻營農夫】越光米-糙米.jpg" alt="【麻營農夫】越光米-糙米">
-                                    <h1>【麻營農夫】<br>越光米-糙米</h1>
-                                    <p>NT.100</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【久盛農場】胚芽糙米.jpg" alt="【久盛農場】胚芽糙米10入">
-                                    <h1>【久盛農場】<br>胚芽糙米10入</h1>
-                                    <p>NT.1000</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                                
-                                <div class="col">
-                                    <img src="../build_website/testimg/【久盛農場】黑糯紫米.jpg" alt="【久盛農場】黑糯紫米10入">
-                                    <h1>【久盛農場】<br>黑糯紫米10入</h1>
-                                    <p>NT.1200</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【旗山農會】金蕉米1.8KG.jpg" alt="【旗山農會】金蕉米1.8KG">
-                                    <h1>【旗山農會】<br>金蕉米1.8KG</h1>
-                                    <p>NT.150</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【小農之家】益全白米.jpg" alt="【小農之家】益全白米">
-                                    <h1>【小農之家】<br>益全白米</h1>
-                                    <p>NT.250</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                                <div class="col">
-                                    <img src="../build_website/testimg/【小農之家】益全糙米.jpg" alt="【小農之家】益全糙米">
-                                    <h1>【小農之家】<br>益全糙米</h1>
-                                    <p>NT.200</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                                <!-- 蔬果標籤id="vegetable" -->
-                                <div class="col">
-                                    <img src="../build_website/testimg/【小農之家】益全胚芽米.jpg" alt="【小農之家】益全胚芽米">
-                                    <h1>【小農之家】<br>益全胚芽米</h1>
-                                    <p id="vegetable">NT.200</p>
-                                    <button>加入購物車</button>
-                                    </div>
-                    </div>
-                </div>
-              
-                <div class="topic">新鮮蔬果</div>
                 <div class="container">
                     <div class="row row-cols-6">
-                            <div class="col">
-                            <img src="../build_website/testimg/【古坑合作社】有機蔬菜箱.jpg" alt="【古坑合作社】有機蔬菜箱">
-                            <h1>【古坑合作社】<br>有機蔬菜箱</h1>
-                            <p>NT.850</p>
-                            <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                            <img src="../build_website/testimg/【合家歡農物】山葵葉.jpg" alt="【合家歡農物】山葵葉">
-                            <h1>【合家歡農物】<br>山葵葉</h1>
-                            <p>NT.100</p>
-                            <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【合家歡農物】韓國芝麻葉.jpg" alt="【合家歡農物】韓國芝麻葉">
-                                <h1>【合家歡農物】<br>韓國芝麻葉</h1>
-                                <p>NT.300</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【好好農場】愛文芒果一箱.jpg" alt="【好好農場】愛文芒果一箱">
-                                <h1>【好好農場】<br>愛文芒果一箱</h1>
-                                <p>NT.1360</p>
-                                <button>加入購物車</button>
-                                </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【埔心鄉農會】金蜜芒果.jpg" alt="【埔心鄉農會】金蜜芒果">
-                                <h1>【埔心鄉農會】<br>金蜜芒果</h1>
-                                <p>NT.350</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【大甲區農會】鮮芋塊.jpg" alt="【大甲區農會】鮮芋塊">
-                                <h1>【大甲區農會】<br>鮮芋塊</h1>
-                                <p>NT.100</p>
-                                <button>加入購物車</button>
-                                </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【我家農場】無毒栽種無花果.jpg" alt="【我家農場】無毒栽種無花果">
-                                <h1>【我家農場】<br>無毒栽種無花果1斤</h1>
-                                <p>NT.780</p>
-                                <button>加入購物車</button>
-                                </div>
-                            
-                            <div class="col">
-                                <img src="../build_website/testimg/【農舞台】柚蜂蜜禮盒.jpg" alt="【農舞台】柚蜂蜜禮盒">
-                                <h1>【農舞台】<br>柚蜂蜜禮盒</h1>
-                                <p id="meat">NT.1250</p>
-                                <button>加入購物車</button>
-                                </div>
-                    </div>
-                </div>
-                   
-                <div class="topic">嚴選肉品</div>
-                <div class="container">
-                    <div class="row row-cols-6">
-                            <div class="col">
-                            <img src="../build_website/testimg/【一夫水產】無刺虱目魚肚.png" alt="【一夫水產】無刺虱目魚肚">
-                            <h1>【一夫水產】<br>無刺虱目魚肚</h1>
-                            <p>NT.140</p>
-                            <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                            <img src="../build_website/testimg/【一夫水產】野生船凍透抽.png" alt="【一夫水產】野生船凍透抽">
-                            <h1>【一夫水產】<br>野生船凍透抽</h1>
-                            <p>NT.200</p>
-                            <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【一夫水產】鑽石水午仔魚.png" alt="【一夫水產】鑽石水午仔魚2尾">
-                                <h1>【一夫水產】<br>鑽石水午仔魚2尾</h1>
-                                <p>NT.240</p>
-                                <button>加入購物車</button>
-                                </div>
-                            <div class="col">
-                            <img src="../build_website/testimg/【粿家幫】玉桂黑豬肉香腸.jpg" alt="【粿家幫】玉桂黑豬肉香腸">
-                            <h1>【粿家幫】<br>玉桂黑豬肉香腸</h1>
-                            <p>NT.350</p>
-                            <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【萬金畜牧場】元氣雞湯.jpg" alt="【萬金畜牧場】元氣雞湯">
-                                <h1>【萬金畜牧場】<br>元氣雞湯</h1>
-                                <p id="snake">NT.850</p>
-                                <button>加入購物車</button>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="topic">餅乾點心</div>
-                    <div class="container">
-                    <div class="row row-cols-6">
-                                
-                            <div class="col">
-                                <img src="../build_website/testimg/【柳營農會】蝦米餅.jpg" alt="【柳營農會】蝦米餅">
-                                <h1>【柳營農會】<br>蝦米餅</h1>
-                                <p>NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【柳營農會】牛奶酥棒.jpg" alt="【柳營農會】牛奶酥棒">
-                                <h1>【柳營農會】<br>牛奶酥棒</h1>
-                                <p>NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【池上農會】池上米餅-醬燒.jpg" alt="【池上農會】池上米餅-醬燒">
-                                <h1>【池上農會】<br>池上米餅-醬燒</h1>
-                                <p>NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【池上農會】池上米餅-起司.jpg" alt="【池上農會】池上米餅-起司">
-                                <h1>【池上農會】<br>池上米餅-起司</h1>
-                                <p>NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【旗山農會】手工千層酥.jpg" alt="【旗山農會】手工千層酥">
-                                <h1>【旗山農會】<br>手工千層酥</h1>
-                                <p>NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【旗山農會】香蕉蛋捲.jpg" alt="【旗山農會】香蕉蛋捲">
-                                <h1>【旗山農會】<br>香蕉蛋捲</h1>
-                                <p>NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【旗山農會】好蕉情千層酥禮盒.jpg" alt="【旗山農會】好蕉情千層酥禮盒">
-                                <h1>【旗山農會】<br>好蕉情千層酥禮盒</h1>
-                                <p>NT.350</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【霧峰農會】酒粕香米捲盒裝.jpg" alt="【霧峰農會】酒粕香米捲盒裝">
-                                <h1>【霧峰農會】<br>酒粕香米捲盒裝</h1>
-                                <p>NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-                            <div class="col">
-                                <img src="../build_website/testimg/【霧峰農會】黑芝麻酒粕香米捲盒裝.jpg" alt="【霧峰農會】黑芝麻酒粕香米捲盒裝">
-                                <h1>【霧峰農會】<br>黑芝麻酒粕香米捲盒裝</h1>
-                                <p id="candy">NT.120</p>
-                                <button>加入購物車</button>
-                            </div>
-
-                    </div>
-                </div>
-                            <div class="topic">果乾蜜餞</div>
-                                <div class="container">
-                                <div class="row row-cols-6">
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【國姓農會】梅精錠.jpeg" alt="【國姓農會】梅精錠">
-                                        <h1>【國姓農會】<br>梅精錠</h1>
-                                        <p>NT.39</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【國姓農會】甘梅潤喉片.jpeg" alt="【國姓農會】甘梅潤喉片">
-                                        <h1>【國姓農會】<br>甘梅潤喉片</h1>
-                                        <p>NT.39</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【國姓農會】香梅片.jpeg" alt="【國姓農會】香梅片">
-                                        <h1>【國姓農會】<br>香梅片</h1>
-                                        <p>NT.39</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【國姓農會】黑糖薑錠.jpeg" alt="【國姓農會】黑糖薑錠">
-                                        <h1>【國姓農會】<br>黑糖薑錠</h1>
-                                        <p>NT.39</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【旗山農會】原味香蕉脆片.jpg" alt="【旗山農會】原味香蕉脆片">
-                                        <h1>【旗山農會】<br>原味香蕉脆片</h1>
-                                        <p>NT.120</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【旗山農會】焦糖香蕉脆片.jpg" alt="【旗山農會】焦糖香蕉脆片">
-                                        <h1>【旗山農會】<br>焦糖香蕉脆片</h1>
-                                        <p id="coffee">NT.120</p>
-                                        <button>加入購物車</button>
-                                    </div>
-
-                        </div>
-                    </div>
-
-                            <div class="topic" id="coffee">精品咖啡</div>
-                            <div class="container">
-                                <div class="row row-cols-6">
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【霧峰農會】南美濾掛咖啡.jpg" alt="【霧峰農會】南美濾掛咖啡">
-                                        <h1>【霧峰農會】<br>南美濾掛咖啡</h1>
-                                        <p>NT.160</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【霧峰農會】哥倫比亞濾掛咖啡.jpg" alt="【霧峰農會】哥倫比亞濾掛咖啡">
-                                        <h1>【霧峰農會】<br>哥倫比亞濾掛咖啡</h1>
-                                        <p>NT.280</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【雅谷咖啡莊園】綜合濾掛咖啡-2盒組.jpg" alt="【霧峰農會】綜合濾掛咖啡-2盒組">
-                                        <h1>【雅谷咖啡莊園】<br>綜合濾掛咖啡-2盒組</h1>
-                                        <p>NT.700</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【雅谷咖啡莊園】綜合咖啡豆組─濾掛.jpg" alt="【霧峰農會】南美濾掛咖啡">
-                                        <h1>【雅谷咖啡莊園】<br>綜合咖啡豆組─濾掛</h1>
-                                        <p>NT.1200</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【臺中市農會】螢火蟲咖啡-水洗-10入掛耳包.jpg" alt="【臺中市農會】螢火蟲咖啡-水洗-10入掛耳包">
-                                        <h1>【臺中市農會】<br>螢火蟲咖啡-水洗-10入掛耳包</h1>
-                                        <p id="tea">NT.360</p>
-                                        <button>加入購物車</button>
-                                    </div>
+                        
+                            <div class="col" v-for="item of filterList">
+                                <div class="inCol">
+                                        <div class="icon-container" :class="{ showing: item.showingIcon }">
+                                            <svg class="icon" viewBox="0 0 100 100" width="80" height="80">
+                                                <circle class="circle" cx="50" cy="50" r="48"></circle>
+                                                <polyline class="check" points="28,53 42,66 74,34"></polyline>
+                                            </svg>
+                                        <h4>成功加入購物車</h4>
+                                        </div>  
+                                    <img :src="item.src" alt="圖片失效">
+                                        
+                                    <h1>{{ item.shop }}<br>{{ item.title }}</h1>
+                                    <p>NT.{{ item.price }}</p>
                                     
+                                    <button @click="addToCart(item)">加入購物車</button>
                                 </div>
                             </div>
 
-                            <div class="topic">特級茶葉</div>
-                            <div class="container">
-                                <div class="row row-cols-6">
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【峰田小町】龍眼花茶.jpg" alt="【峰田小町】龍眼花茶">
-                                        <h1>【峰田小町】<br>龍眼花茶</h1>
-                                        <p>NT.250</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【樸作良食】蘿勒花草茶.jpg" alt="【樸作良食】蘿勒花草茶">
-                                        <h1>【樸作良食】<br>蘿勒花草茶</h1>
-                                        <p>NT.750</p>
-                                        <button>加入購物車</button>
-                                    </div>
-                                    <div class="col">
-                                        <img src="../build_website/testimg/【連記茶莊】有機蜜香紅茶.jpg" alt="【連記茶莊】有機蜜香紅茶">
-                                        <h1>【連記茶莊】】<br>有機蜜香紅茶</h1>
-                                        <p>NT.660</p>
-                                        <button>加入購物車</button>
-                                    </div>
+                            <p style="font-size: 30px;font-weight: 800;color:#5c513d;text-align: center;margin-top: 50px;"><i class="fas fa-shopping-cart"> 購物清單</i></p>
+            
+                <div class="item" v-for="item of productsInCart">
+                    <img :src="item.src" alt="圖片失效" class="img">
+                    <p class="itemName">{{ item.shop }}<br>{{ item.title }}</p>
+                        <div class="formPrice">
+                            <button class="round" @click="minusOne(item)">-</button>
+                            <span>{{ item.amountShow }}</span>
+                            <button class="round" @click="addOne(item)">+</button>
+                            <p class="price">NT.{{ item.price }}</p>
+                        </div> 
+                        <div class="radio">
+                
+                            <label>
+                                <input type="checkbox" value="cupon">
+                                <span style="font-weight: 600; color:#A18559;">使用折價券 (請先打勾，於下一步輸入序號)</span>
+                            </label>
+                            <p class="total"><span>小計 NT.</span>{{item.sum}}</p>
+                            
+                            </div>    
+
+
                     </div>
-                </div>
+                </div><p class="total"><span>總金額 NT.</span>{{ total }}</p>
 
             </div>
         </div>
@@ -424,11 +132,13 @@
         <hr>
         Copyright © 2021 好米行 All Rights Reserved.
     </footer>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="cart.js"></script>
     <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js' integrity='sha512-3fMsI1vtU2e/tVxZORSEeuMhXnT9By80xlmXlsOku7hNwZSHJjwcOBpmy+uu+fyWwGCLkMvdVbHkeoXdAzBv+w==' crossorigin='anonymous'></script>
@@ -450,5 +160,6 @@ var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
   return new bootstrap.Dropdown(dropdownToggleEl)
 })
 </script>
+
 </body>
 </html>

@@ -3,6 +3,7 @@ from . import models
 from .models import UserDATA
 from .forms import signModelForm, editModelForm, cardModelForm, addressModelForm
 from django.contrib.auth.decorators import login_required
+
 from django.http import HttpResponse
 
 def login(request):
@@ -132,10 +133,29 @@ def user_adr_edit(request):
 
 def user_ccard(request):
     signs = UserDATA.objects.filter(id=1)
-
     return render(request, 'login/user_ccard.html', {"signs": signs})
 
 
 def user_password_edit(request):
-    signs = UserDATA.objects.filter(id=1)
-    return render(request, 'login/user_password_edit.html', {"signs": signs})
+    user = request.user
+    msg = None
+
+    if request.method == 'POST':
+        password = request.POST.get("old_password", "")
+        new_password = request.POST.get("new_password", "")
+        confirm = request.POST.get("confirm_password", "")
+
+
+        if user.check_password(password):
+            if new_password or confirm:
+                msg = "新密碼不能為空"
+            elif new_password != confirm:
+                msg = "兩次密碼不一致"
+            else:
+                user.set_password(new_password)
+                user.save()
+                return redirect("/user_password_edit/")
+        else:
+            msg = "就密碼輸入錯誤"
+
+    return render(request, 'login/user_password_edit.html', {"msg": msg})

@@ -70,3 +70,16 @@ class addressModelForm(forms.ModelForm):  # 編輯地址
             'address3': ''
         }
 
+class passwordModelForm(forms.ModelForm):  # 編輯地址
+    class Meta:
+        model = UserDATA
+        fields = ('password',)
+        widgets = {
+            'password': forms.Select(attrs={'class': 'form-control', 'style': 'width:425x'}),
+
+        }
+        labels = {
+            'password': '',
+
+        }
+

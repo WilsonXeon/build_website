@@ -26,9 +26,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('login/', views.login, name='Login'),
     path('logout', views.logout, name='Logout'),
-
     path('register/', views.register, name='Register'),
-
     path('forget/', views.forget),
     path('login/register/', views.register),
     path('login/forget/', views.forget),
@@ -37,14 +35,12 @@ urlpatterns = [
     path('user_ccard/', views.user_ccard),
     path('user_adr_edit/', views.user_adr_edit),
     path('user_edit/', views.user_edit, name="edit"),
-    path('updateCard/<str:pk>', views.updateCard, name='UpdateCard'),
-    path('updatePerson/<str:pk>', views.updatePerson, name='Update'),
-    path('updateAress/<str:pk>', views.updateAddress, name='UpdateAddress'),
+    path('updateCard/<str:pk>', views.update_Card, name='UpdateCard'),
+    path('updatePerson/<str:pk>', views.update_Person, name='Update'),
+    path('updateAress/<str:pk>', views.update_Address, name='UpdateAddress'),
     path('user_password_edit', views.user_password_edit),
     path('error/', views.error)
 
 ]
 
-
-
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

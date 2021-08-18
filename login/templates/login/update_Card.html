@@ -23,8 +23,10 @@
             <span>選單</span>
         </label>
     </div>
+<!-- 這個區塊的內容會讓繼承此模板的子模板複寫 -->
 {% block content %}
 <body>
+<!-- 跨站請求偽造 -->
 {% csrf_token %}
     <div class="wrap">
     <div class="list">

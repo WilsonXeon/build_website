@@ -24,6 +24,10 @@
     </div>
 
 <body>
+
+
+
+<!-- 這個區塊的內容會讓繼承此模板的子模板複寫 -->
 {% block content %}
     <div class="wrap">
         <div class="list">
@@ -48,6 +52,8 @@
 
                 <form class="box3" action="" method="POST">
                     <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-map-marker-alt"> 寄件地址</i></p>
+
+                    <!-- 跨站請求偽造 -->
                     {% csrf_token %}
 
 

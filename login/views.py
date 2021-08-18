@@ -3,10 +3,10 @@ from . import models
 from .models import UserDATA
 from .forms import signModelForm, editModelForm, cardModelForm, addressModelForm
 from django.contrib.auth.decorators import login_required
+#  負責引導網址去向
 
-from django.http import HttpResponse
 
-def login(request):
+def login(request):  # 登入頁面
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -31,7 +31,7 @@ def login(request):
     return render(request, 'login/login.html', locals())
 
 
-def register(request):
+def register(request):  # 註冊頁面
     form = signModelForm()
 
     if request.method == "POST":
@@ -47,7 +47,12 @@ def register(request):
     return render(request, 'login/register.html', context)
 
 
-def updatePerson(request, pk):
+def user_edit(request):  # 顯示個人資料
+    signs = UserDATA.objects.filter(id=1)
+    return render(request, 'login/user_edit.html', {"signs": signs})
+
+
+def update_Person(request, pk):  # 更新個人資料
     signs = UserDATA.objects.get(id=pk)
     form = editModelForm(instance=signs)
 
@@ -60,9 +65,10 @@ def updatePerson(request, pk):
 
         'form': form
     }
-    return render(request, 'login/updatePerson.html', context)
+    return render(request, 'login/update_Person.html', context)
 
-def updateCard(request, pk):
+
+def update_Card(request, pk):  # 更新信用卡
     signs = UserDATA.objects.get(id=pk)
     form = cardModelForm(instance=signs)
 
@@ -74,10 +80,15 @@ def updateCard(request, pk):
     context = {
         'form': form
     }
-    return render(request, 'login/updateCard.html', context)
+    return render(request, 'login/update_Card.html', context)
 
 
-def updateAddress(request, pk):
+def user_ccard(request):  # 顯示信用卡
+    signs = UserDATA.objects.filter(id=1)
+    return render(request, 'login/user_ccard.html', {"signs": signs})
+
+
+def update_Address(request, pk):  # 更新地址
     signs = UserDATA.objects.get(id=pk)
     form = addressModelForm(instance=signs)
 
@@ -89,54 +100,15 @@ def updateAddress(request, pk):
     context = {
         'form': form
     }
-    return render(request, 'login/updateAddress.html', context)
+    return render(request, 'login/update_Address.html', context)
 
 
-def user_edit(request):
-    signs = UserDATA.objects.filter(id=1)
-    return render(request, 'login/user_edit.html',  {"signs": signs})
-
-
-def logout(request):
-    return redirect('/login')
-
-
-@login_required(login_url='Logout')
-def home(request):
-    return render(request, 'login/home.html')
-
-
-def error(request):
-    return render(request, 'login/404.html')
-
-
-def sign(request):
-    return render(request, 'login/sign.html')
-
-
-def forget(request):
-    return render(request, 'login/forget.html')
-
-
-def shopping_cart(request):
-    return render(request, 'login/shopping_cart.html')
-
-
-def shopping_info(request):
-    return render(request, 'login/shopping_info.html')
-
-
-def user_adr_edit(request):
+def user_adr_edit(request):  # 顯示地址
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'login/user_adr_edit.html', {"signs": signs})
 
 
-def user_ccard(request):
-    signs = UserDATA.objects.filter(id=1)
-    return render(request, 'login/user_ccard.html', {"signs": signs})
-
-
-def user_password_edit(request):
+def user_password_edit(request):  # 更新密碼
     user = request.user
     msg = None
 
@@ -144,7 +116,6 @@ def user_password_edit(request):
         password = request.POST.get("old_password", "")
         new_password = request.POST.get("new_password", "")
         confirm = request.POST.get("confirm_password", "")
-
 
         if user.check_password(password):
             if new_password or confirm:
@@ -159,3 +130,31 @@ def user_password_edit(request):
             msg = "就密碼輸入錯誤"
 
     return render(request, 'login/user_password_edit.html', {"msg": msg})
+
+
+@login_required(login_url='Logout')  # 沒有登入無法透過網址直接進入首頁
+def home(request):    # 首頁
+    return render(request, 'login/home.html')
+
+
+def logout(request):  # 登出指引
+    return redirect('/login')
+
+
+def error(request):  # 錯誤頁面
+    return render(request, 'login/404.html')
+
+
+def forget(request):  # 忘記密碼頁面
+    return render(request, 'login/forget.html')
+
+
+def shopping_cart(request):  # 購物車
+    return render(request, 'login/shopping_cart.html')
+
+
+def shopping_info(request):  # 通知頁面
+    return render(request, 'login/shopping_info.html')
+
+
+

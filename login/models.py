@@ -1,9 +1,9 @@
 from django.db import models
-from django.utils import timezone
+
 # Create your models here.
 
 
-#產品
+# 產品
 class product(models.Model):
     item_ID = models.CharField(max_length=9)
     item_tpye = models.CharField(max_length=50, blank=True)
@@ -13,7 +13,7 @@ class product(models.Model):
     pic = models.ImageField(null=True, blank=True)
 
 
-#使用者資料
+# 使用者資料
 class UserDATA(models.Model):
     username = models.CharField(max_length=128, blank=False, null=False, unique=True)
     password = models.CharField(max_length=256)

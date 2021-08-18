@@ -32,10 +32,16 @@
         <div class="loginDiv">
            <!-- 帳號密碼表單 -->
              <form class="login" action="" method="post">
+
+             <!-- 跳錯誤訊息 -->
                   {% if message %}
                      <div class="alert alert-warning">{{ message }}</div>
                   {% endif %}
+
+                  <!-- 跨站請求偽造 -->
                   {% csrf_token %}
+
+
                   <h1>Login</h1>
 
 

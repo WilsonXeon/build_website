@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-znp85cfm2(9+k$^_6^)!t2ob2-1u^)5-)@7fx9(7=n=jq84-8%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']  # 所有網域都可連線
 
 
 # Application definition
@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# 資料庫連接
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -110,8 +111,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
+# 繁體中文
 LANGUAGE_CODE = 'zh-Hant'
 
+# 台灣時間
 TIME_ZONE = 'Asia/Taipei'
 
 USE_I18N = True

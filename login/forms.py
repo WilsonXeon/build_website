@@ -70,7 +70,8 @@ class addressModelForm(forms.ModelForm):  # 編輯地址
             'address3': ''
         }
 
-class passwordModelForm(forms.ModelForm):  # 編輯地址
+
+class passwordModelForm(forms.ModelForm):  # 編輯密碼
     class Meta:
         model = UserDATA
         fields = ('password',)
@@ -80,6 +81,4 @@ class passwordModelForm(forms.ModelForm):  # 編輯地址
         }
         labels = {
             'password': '',
-
         }
-

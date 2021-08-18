@@ -34,8 +34,13 @@
     <div class="sign">
     <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
         <form action="" method="post" class="signup">
+
+         <!-- 跨站請求偽造 -->
          {% csrf_token %}
-                {% verbatim %}
+
+
+         <!-- 默認在DTL模板中視會去解析那些特殊字符的 -->
+         {% verbatim %}
 
             <!--帳號-->
                 <div class="invalid-feedback" v-if="this.usernameError === true">
@@ -107,7 +112,7 @@
             </form>
 
     </div>
-    {% endverbatim %}
+         {% endverbatim %}
 </div>
 
 
@@ -125,6 +130,7 @@
             //後面四個參數分別是兩個下拉選單的預設文字跟值
            AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
        }
+
      </script>
     <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>

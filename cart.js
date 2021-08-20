@@ -1,10 +1,90 @@
-let apps = new Vue({
+let componentCart = {
+  data: function () {
+    return {
+      newAdd: []
+    }
+  },
+  mounted() {
+    let add = localStorage.getItem('add')
+      if(add !=null){
+        this.newAdd = JSON.parse(add)
+        }
+      },
+  methods:{
+        minusOne (item) {
+          item.amountShow--
+          item.amountShow = (item.amountShow < 1) ? 1 : item.amountShow
+          this.sum(item)
+          this.updataCart()
+        },
+        addOne (item) {
+          item.amountShow++
+          item.amountShow = (item.amountShow > 9) ? 9 : item.amountShow
+          
+          this.sum(item)
+          this.updataCart()
+        },
+        remove (item){
+          this.newAdd.splice(item,1)
+          this.updataCart()
+        },
+        updataCart() {
+          localStorage.setItem("add", JSON.stringify(this.newAdd))
+        },
+        sum(item){
+          item.sum = item.amountShow * item.price
+          return item
+        },
+        
+  },
+  computed:{
+    //目前購買的總金額
+    total: function () {
+      let total=0;
+      for(let i in this.newAdd){
+        total+=this.newAdd[i].price*this.newAdd[i].amountShow;
+      }
+      return total;
+    },
+  },
+  template:
+        `<table>
+         <div class="item" v-for="item of newAdd">
+        <img :src="item.src" alt="圖片失效" class="img">
+            <p class="itemName">{{ item.shop }}<br>{{ item.title }}</p>
+                <div class="formPrice">
+                    <button class="round" @click="minusOne(item)">-</button>
+                    <span>{{ item.amountShow }}</span>
+                    <button class="round" @click="addOne(item)">+</button>
+                    <p class="price">NT.{{ item.price }}</p>
+                    <p class="total"><span>小計NT.</span>{{item.sum}}</p>
+                    <button class="buttonDel" @click="remove(item)">×</button>
+                </div>  
+        </div>
+
+        <div class="radio">
+        
+            <label>
+                <input type="checkbox" value="cupon">
+                <span style="font-weight: 600; color:#A18559;">使用折價券 (請先打勾，於下一步輸入序號)</span>
+            </label>
+            
+            <p class="total"><span>總共 NT.</span>{{ total }}</p>
+            <a href="???" class="buttonNext">下一步 ▶</a>
+            </div>
+            
+            </table>`,
+      
+  }
+
+let app = new Vue({
     el: '#app',
-    data: {
-        col:'',
+    components: {
+      'component-cart': componentCart
+    },
+    data:{
+        add:[],
         show:"all",
-        isShowingCart: false,
-        item:'',
         cols: [
             {src:"../build_website/testimg/【霧峰區農會】五甲地香米.jpg",itemId:"001",
             shop:"【霧峰區農會】", title: "五甲地香米", price:280, type:"rice", 
@@ -151,28 +231,56 @@ let apps = new Vue({
             shop:"【連記茶莊】", title: "有機蜜香紅茶", price:660, type:"tea",
             amount: 0, amountShow: 1, showingIcon: false},
             ],
-        
     },
+    mounted() {
+
+      let add = localStorage.getItem('add')
+        if(add !=null){
+          this.add = JSON.parse(add)
+          }
+        },
     methods:{
-      
         addToCart (item) {
           item.amount += item.amountShow
             item.showingIcon = true
             setTimeout(() => {
                 item.showingIcon = false
             }, 800)
+            this.sum(item)
+            this.updataCart()
+            let findProduct = this.add.find(o => o.itemId === item.itemId)
+            let rel = true
+            if(findProduct){
+              this.addOne (item)
+              rel = false
+              return;
+            }
+            else{
+              this.add=[...this.add, item]
+              localStorage.setItem('add', JSON.stringify(this. add));
+            }
         },
-
-        minusOne (item) {
-          item.amountShow--
-          item.amountShow = (item.amountShow < 1) ? 1 : item.amountShow
-          item.amount = item.amountShow
-      },
-      addOne (item) {
-        item.amountShow++
-        item.amountShow = (item.amountShow > 9) ? 9 : item.amountShow
-        item.amount = item.amountShow
-      },
+          minusOne (item) {
+            item.amountShow--
+            item.amountShow = (item.amountShow < 1) ? 1 : item.amountShow
+            this.sum(item)
+            this.updataCart()
+          },
+          addOne (item) {
+            item.amountShow++
+            item.amountShow = (item.amountShow > 100) ? 100 : item.amountShow
+            
+            this.sum(item)
+            this.updataCart()
+          },
+          updataCart() {
+            localStorage.setItem("add", JSON.stringify(this.add))
+          },
+          sum(item){
+            item.sum = item.amountShow * item.price
+            return item
+          },
+          
     },
     computed:{
         filterList(){
@@ -195,7 +303,8 @@ let apps = new Vue({
                     })
           }else if(this.show === "dessert"){
             return this.cols.filter((item)=>{
-              return item.type != "rice" && item.type != "vegetable" && item.type != "meat"
+              return item.type != "rice" && item.type != "vegetable"
+               && item.type != "meat"
                     })
           }else if(this.show === "snake"){
             return this.cols.filter((item)=>{
@@ -217,24 +326,19 @@ let apps = new Vue({
             return this.cols
           }
         },
-          productsInCart () {
-            
-            return this.cols
-                // 只顯示購買數量 > 0 的項目
-                .filter(item => item.amount>0)
-                // 算出每個產品的小計
-                .map(item => {
-                  item.sum = item.amount * item.price
-                    return item
-                })
-        },
-        // 目前購買的總金額
-        total: function () {
-          return this.productsInCart
-              .reduce((sum, item) => (sum + item.sum), 0)
+           //目前購買的總金額
+    total: function () {
+      let total=0;
+      for(let i in this.add){
+        total+=this.add[i].price*this.add[i].amountShow;
       }
+      return total;
+    },
+        
+        
       },
         
     
     });
 
+   

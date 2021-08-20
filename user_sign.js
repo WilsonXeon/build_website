@@ -4,24 +4,30 @@ var app = new Vue({
     el: '#app',
     data: {
         username: '',
+        
         usernameError: false,
         userErrMsg: '',
 
         password: '',
+        password: null,
         passwordError: false,
         passErrMsg: '',
 
         name:'',
+        name:null,
 
         email: '',
+        email: null,
         emailError: false,
         emailErrMsg: '',
 
         tel:'',
+        tel:null,
         telError: false,
         telErrMsg:'',
 
         selected1:'',
+        selected1:null,
         selected2:'',
         message:'',
 
@@ -41,7 +47,6 @@ var app = new Vue({
             address: [this.selected1,this.selected2,this.message].join(''),           
             date: this.date
             };
-
     
         axios.post('', { formData })
         .then(res => {
@@ -59,6 +64,9 @@ var app = new Vue({
             if (!isText.test(this.username)) {
                 this.usernameError = true;
                 this.userErrMsg = '☹ 請勿包含特殊字元如-*/?,.:;"';
+            }else if (!this.username) {
+                this.usernameError = true;
+                this.userErrMsg = '☹ 此欄必填';
             }
             else if (this.username.length > 10) {
                 this.usernameError = true;

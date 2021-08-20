@@ -561,12 +561,15 @@ body{
         input[type="checkbox"]:checked+span {
           background: url(https://i.imgur.com/JWm4WKA.png) no-repeat left top;
         }
-
+        //總金額
         .total{
           margin-top: 10px;
-          font-size: 28px;
+          font-size: pxToVw(20);
           font-weight: 700;
           color: #5F4B3F;
+          @media (max-width:420px) {
+            font-size: 25px;
+          }
         }
         //下一步
         .buttonNext{
@@ -604,7 +607,6 @@ body{
 
     
       .item{
-        
         display:flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -617,9 +619,9 @@ body{
           align-items:center;
         }
         .itemName{
-          width: pxToVw(150);
+          width: pxToVw(130);
           color: #5F4B3F;
-          font-weight: 800;
+          font-weight: 600;
           font-size: pxToVw(16);
           
           @media (max-width:420px) {
@@ -631,36 +633,84 @@ body{
         .img{
           border-radius: 10px;
             margin: pxToVw(20);
-            max-width:60%;
-            max-height:60%;
+            max-width:pxToVw(120);
+            max-height:pxToVw(120);
+            @media (max-width:420px) {
+              border-radius: 0px;
+              width: 100px;
+              height: 100px;
+            }
         }
 
+        //數量價格
         .formPrice{
-          margin: 20px;
+          margin: 10px;
           display: flex;
           flex-direction: row;
           align-content: center;
           align-items: center;
-          .form-control{
-            color: #cc9e4e;
-            width: pxToVw(80);
-            padding: 5px;
-            height: pxToVh(40);
-            border-style: none;
+          //數量
+          > span {
             font-size: pxToVw(20);
-              background-color: rgba($color: #FBF3ED, $alpha: 0.5);
-              border-bottom:0.5px solid #5F4B3F;
-              border-radius: 10px;
-              @media (max-width:420px) {
-                width: pxToVw(300);
-                font-size: 20px;
-              }
+            color: #5F4B3F;
+            margin: pxToVw(10);
+            @media (max-width:420px) {
+              font-size: 20px;
+            }
           }
+           //+&-
+           .round {
+            width: pxToVw(20);
+            height: pxToVw(20);
+            //移除按鈕預設邊
+            outline: 0;
+            border: 0;
+            margin: pxToVw(10);
+            color: #cc9e4e;
+            font-size: pxToVw(20);
+            line-height: pxToVw(5);
+            margin: auto;
+            background: #FBF3ED;
+            border-radius: 50%;
+            cursor: pointer;
+            @media (max-width:420px) {
+              width: 40px;
+              height: 40px;
+              font-size: 26px;
+            line-height: pxToVw(50);
+            }
+        }
+          //刪除
+          .buttonDel {
+            position: relative;
+            left:pxToVw(40);
+            bottom:pxToVh(80);
+            width: 30px;
+            height: 30px;
+            outline: 0;
+            border: 0;
+            padding: 0 0 .4em;
+            color: #ff8973;
+            font-size: pxToVw(24);
+            background: transparent;
+            cursor: pointer;
+        }
+          //單價
           .price{
             color: #cc9e4e;
-            font-weight: 600;
-            font-size: pxToVw(20);
-            margin: 20px;
+            font-weight: 400;
+            font-size: pxToVw(14);
+            margin: pxToVw(10);
+            @media (max-width:420px) {
+              font-size: 20px;
+            }
+          }
+         
+          //小計
+          .total{
+            color: #5F4B3F;
+            font-weight: 400;
+            font-size: pxToVw(16);
             @media (max-width:420px) {
               font-size: 20px;
             }

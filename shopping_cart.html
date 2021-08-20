@@ -25,62 +25,37 @@
     </div>
 
 <body>
-    <div class="wrap">
-    <div class="list">
-        <li>
-            <a href="user_edit.html"> ▎我的帳戶</a>
+    <div class="wrap" id="app">
+        <div class="list">
+            <li>
+                <a href="user_edit.html"> ▎我的帳戶</a>
+                
+                <ui><a href="user_edit.html"> ▏個人資料</ui></a>
+                <ui> <a href="user_ccard.html">▏我的信用卡</ui></a>
+                <ui> <a href="user_adr_edit.html"> ▏寄件地址</ui></a>
+                <ui> <a href="user_password_edit.html"> ▏更改密碼</ui></a>
+                
+            </li>
             
-            <ui><a href="user_edit.html"> ▏個人資料</ui></a>
-            <ui> <a href="user_ccard.html">▏我的信用卡</ui></a>
-            <ui> <a href="user_adr_edit.html"> ▏寄件地址</ui></a>
-            <ui> <a href="user_password_edit.html"> ▏更改密碼</ui></a>
-            
-        </li>
-        
-        <li>
-            <a href="shopping_cart.html">  ▎購物清單</a>
-        </li>
+            <li>
+                <a href="shopping_cart.html">  ▎購物清單</a>
+            </li>
 
-        <li>
-            <a href="shopping_info.html"> ▎通知一覽</a>
-        </li>
-    </div>
+            <li>
+                <a href="shopping_info.html"> ▎通知一覽</a>
+            </li>
+        </div>
 
-            <form class="box5" id="app">
+            <form class="box5">
                 <p style="font-size: 30px;font-weight: 800;color:#5c513d;text-align: center;margin-top: 50px;"><i class="fas fa-shopping-cart"> 購物清單</i></p>
-            
-
-
                 
-                <div class="item" v-for="item of productsInCart">
-                    <img :src="item.src" alt="圖片失效" class="img">
-                    <p class="itemName">{{ item.shop }}<br>{{ item.title }}</p>
-                        <div class="formPrice">
-                            <input type="number" placeholder="1" min="1" class="form-control">
-                            <p class="price">NT.{{ item.price }}</p>
-                        </div>  
-                </div>
-
-
-              
-
-                <div class="radio">
-                
-                    <label>
-                        <input type="checkbox" value="cupon">
-                        <span style="font-weight: 600; color:#A18559;">使用折價券 (請先打勾，於下一步輸入序號)</span>
-                    </label>
-                    
-                    <p class="total"><span>總共 NT.</span>{{item.sum}}</p>
-                    <a href="user_edit_7.html" class="buttonNext">下一步 ▶</a>
-                    </div>    
+               <component-cart :add="add" :total="total"></component-cart>
                 
             </form>
             
-        
              
-
-             <script src="index.js"></script>
+    </div>
+             
              <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
              <script src="cart.js"></script>
              <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>

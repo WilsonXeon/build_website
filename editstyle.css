@@ -766,9 +766,15 @@ body .wrap .box5 .radio input[type="checkbox"]:checked + span {
 
 body .wrap .box5 .radio .total {
   margin-top: 10px;
-  font-size: 28px;
+  font-size: 1.95122vw;
   font-weight: 700;
   color: #5F4B3F;
+}
+
+@media (max-width: 420px) {
+  body .wrap .box5 .radio .total {
+    font-size: 25px;
+  }
 }
 
 body .wrap .box5 .radio .buttonNext {
@@ -843,9 +849,9 @@ body .wrap .box5 .item {
 }
 
 body .wrap .box5 .item .itemName {
-  width: 14.63415vw;
+  width: 12.68293vw;
   color: #5F4B3F;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.56098vw;
 }
 
@@ -860,12 +866,20 @@ body .wrap .box5 .item .itemName {
 body .wrap .box5 .item .img {
   border-radius: 10px;
   margin: 1.95122vw;
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 11.70732vw;
+  max-height: 11.70732vw;
+}
+
+@media (max-width: 420px) {
+  body .wrap .box5 .item .img {
+    border-radius: 0px;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 body .wrap .box5 .item .formPrice {
-  margin: 20px;
+  margin: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -880,34 +894,78 @@ body .wrap .box5 .item .formPrice {
           align-items: center;
 }
 
-body .wrap .box5 .item .formPrice .form-control {
-  color: #cc9e4e;
-  width: 7.80488vw;
-  padding: 5px;
-  height: 5.97015vh;
-  border-style: none;
+body .wrap .box5 .item .formPrice > span {
   font-size: 1.95122vw;
-  background-color: rgba(251, 243, 237, 0.5);
-  border-bottom: 0.5px solid #5F4B3F;
-  border-radius: 10px;
+  color: #5F4B3F;
+  margin: 0.97561vw;
 }
 
 @media (max-width: 420px) {
-  body .wrap .box5 .item .formPrice .form-control {
-    width: 29.26829vw;
+  body .wrap .box5 .item .formPrice > span {
     font-size: 20px;
   }
 }
 
+body .wrap .box5 .item .formPrice .round {
+  width: 1.95122vw;
+  height: 1.95122vw;
+  outline: 0;
+  border: 0;
+  margin: 0.97561vw;
+  color: #cc9e4e;
+  font-size: 1.95122vw;
+  line-height: 0.4878vw;
+  margin: auto;
+  background: #FBF3ED;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (max-width: 420px) {
+  body .wrap .box5 .item .formPrice .round {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 4.87805vw;
+  }
+}
+
+body .wrap .box5 .item .formPrice .buttonDel {
+  position: relative;
+  left: 3.90244vw;
+  bottom: 11.9403vh;
+  width: 30px;
+  height: 30px;
+  outline: 0;
+  border: 0;
+  padding: 0 0 .4em;
+  color: #ff8973;
+  font-size: 2.34146vw;
+  background: transparent;
+  cursor: pointer;
+}
+
 body .wrap .box5 .item .formPrice .price {
   color: #cc9e4e;
-  font-weight: 600;
-  font-size: 1.95122vw;
-  margin: 20px;
+  font-weight: 400;
+  font-size: 1.36585vw;
+  margin: 0.97561vw;
 }
 
 @media (max-width: 420px) {
   body .wrap .box5 .item .formPrice .price {
+    font-size: 20px;
+  }
+}
+
+body .wrap .box5 .item .formPrice .total {
+  color: #5F4B3F;
+  font-weight: 400;
+  font-size: 1.56098vw;
+}
+
+@media (max-width: 420px) {
+  body .wrap .box5 .item .formPrice .total {
     font-size: 20px;
   }
 }

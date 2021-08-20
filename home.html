@@ -36,7 +36,7 @@
                           <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="#">登出</a>
                         </div>
-                      <!-- </div> -->
+                      
 
                 </div>
                    
@@ -78,55 +78,31 @@
                     <img src="../build_website/testimg/芒果1.jpg" alt="芒果季開跑">
                 </div>
                
+
                 <div class="container">
                     <div class="row row-cols-6">
-                        
-                            <div class="col" v-for="item of filterList">
-                                <div class="inCol">
-                                        <div class="icon-container" :class="{ showing: item.showingIcon }">
-                                            <svg class="icon" viewBox="0 0 100 100" width="80" height="80">
-                                                <circle class="circle" cx="50" cy="50" r="48"></circle>
-                                                <polyline class="check" points="28,53 42,66 74,34"></polyline>
-                                            </svg>
-                                        <h4>成功加入購物車</h4>
-                                        </div>  
-                                    <img :src="item.src" alt="圖片失效">
-                                        
-                                    <h1>{{ item.shop }}<br>{{ item.title }}</h1>
-                                    <p>NT.{{ item.price }}</p>
-                                    
-                                    <button @click="addToCart(item)">加入購物車</button>
-                                </div>
-                            </div>
-
-                            <p style="font-size: 30px;font-weight: 800;color:#5c513d;text-align: center;margin-top: 50px;"><i class="fas fa-shopping-cart"> 購物清單</i></p>
+                    <div class="col" v-for="item of filterList">
+                    <div class="inCol">
+                              <div class="icon-container" :class="{ showing: item.showingIcon }">
+                                  <svg class="icon" viewBox="0 0 100 100" width="80" height="80">
+                                      <circle class="circle" cx="50" cy="50" r="48"></circle>
+                                      <polyline class="check" points="28,53 42,66 74,34"></polyline>
+                                  </svg>
+                              <h4>成功加入購物車</h4>
+                              </div>  
+                          <img :src="item.src" alt="圖片失效">
+                              
+                          <h1>{{ item.shop }}<br>{{ item.title }}</h1>
+                          <p>NT.{{ item.price }}</p>
+                          
+                          <button @click="addToCart(item)">加入購物車</button>
+                      </div>
+                      </div>
+                      </div>  
+                      </div>
             
-                <div class="item" v-for="item of productsInCart">
-                    <img :src="item.src" alt="圖片失效" class="img">
-                    <p class="itemName">{{ item.shop }}<br>{{ item.title }}</p>
-                        <div class="formPrice">
-                            <button class="round" @click="minusOne(item)">-</button>
-                            <span>{{ item.amountShow }}</span>
-                            <button class="round" @click="addOne(item)">+</button>
-                            <p class="price">NT.{{ item.price }}</p>
-                        </div> 
-                        <div class="radio">
-                
-                            <label>
-                                <input type="checkbox" value="cupon">
-                                <span style="font-weight: 600; color:#A18559;">使用折價券 (請先打勾，於下一步輸入序號)</span>
-                            </label>
-                            <p class="total"><span>小計 NT.</span>{{item.sum}}</p>
-                            
-                            </div>    
-
-
-                    </div>
-                </div><p class="total"><span>總金額 NT.</span>{{ total }}</p>
-
             </div>
-        </div>
-
+       
     </div>
     <footer class="footer">
         <hr>

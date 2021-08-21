@@ -57,7 +57,7 @@ let componentCart = {
                     <span>{{ item.amountShow }}</span>
                     <button class="round" @click="addOne(item)">+</button>
                     <p class="price">NT.{{ item.price }}</p>
-                    <p class="total"><span>小計NT.</span>{{item.sum}}</p>
+                    
                     <button class="buttonDel" @click="remove(item)">×</button>
                 </div>  
         </div>

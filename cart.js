@@ -25,7 +25,8 @@ let componentCart = {
           this.updataCart()
         },
         remove (item){
-          this.newAdd.splice(item,1)
+          let index = this.newAdd.indexOf(item)
+          this.newAdd.splice(index,1)
           this.updataCart()
         },
         updataCart() {

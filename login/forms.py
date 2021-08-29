@@ -2,13 +2,15 @@ from django import forms
 from .models import UserDATA
 
 
-class signModelForm(forms.ModelForm):  # 註冊頁面
+# 註冊頁面
+class signModelForm(forms.ModelForm):
     class Meta:
         model = UserDATA
         fields = ('username', 'password', 'name', 'email', 'tel', 'address1', 'address2', 'address3', 'birth')
 
 
-class editModelForm(forms.ModelForm):  # 編輯個人資料
+# 編輯個人資料
+class editModelForm(forms.ModelForm):
     class Meta:
         model = UserDATA
         fields = ('name', 'email', 'tel', 'birth')
@@ -26,7 +28,8 @@ class editModelForm(forms.ModelForm):  # 編輯個人資料
         }
 
 
-class cardModelForm(forms.ModelForm):  # 編輯信用卡頁面
+# 編輯信用卡頁面
+class cardModelForm(forms.ModelForm):
     class Meta:
         model = UserDATA
         fields = ('card_name', 'card_number1', 'card_number2', 'card_number3', 'card_number4', 'card_date1'
@@ -54,7 +57,8 @@ class cardModelForm(forms.ModelForm):  # 編輯信用卡頁面
         }
 
 
-class addressModelForm(forms.ModelForm):  # 編輯地址
+# 編輯地址
+class addressModelForm(forms.ModelForm):
     class Meta:
         model = UserDATA
         fields = ('address1', 'address2', 'address3')
@@ -71,7 +75,8 @@ class addressModelForm(forms.ModelForm):  # 編輯地址
         }
 
 
-class passwordModelForm(forms.ModelForm):  # 編輯密碼
+# 編輯密碼
+class passwordModelForm(forms.ModelForm):
     class Meta:
         model = UserDATA
         fields = ('password',)

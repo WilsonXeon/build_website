@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 #  負責引導網址去向
 
 
-def login(request):  # 登入頁面
+# 登入頁面
+def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -31,7 +32,8 @@ def login(request):  # 登入頁面
     return render(request, 'login/login.html', locals())
 
 
-def register(request):  # 註冊頁面
+# 註冊頁面
+def register(request):
     form = signModelForm()
 
     if request.method == "POST":
@@ -47,12 +49,14 @@ def register(request):  # 註冊頁面
     return render(request, 'login/register.html', context)
 
 
-def user_edit(request):  # 顯示個人資料
+# 顯示個人資料
+def user_edit(request):
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'login/user_edit.html', {"signs": signs})
 
 
-def update_Person(request, pk):  # 更新個人資料
+# 更新個人資料
+def update_Person(request, pk):
     signs = UserDATA.objects.get(id=pk)
     form = editModelForm(instance=signs)
 
@@ -68,7 +72,8 @@ def update_Person(request, pk):  # 更新個人資料
     return render(request, 'login/update_Person.html', context)
 
 
-def update_Card(request, pk):  # 更新信用卡
+# 更新信用卡
+def update_Card(request, pk):
     signs = UserDATA.objects.get(id=pk)
     form = cardModelForm(instance=signs)
 
@@ -83,12 +88,14 @@ def update_Card(request, pk):  # 更新信用卡
     return render(request, 'login/update_Card.html', context)
 
 
-def user_ccard(request):  # 顯示信用卡
+# 顯示信用卡
+def user_ccard(request):
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'login/user_ccard.html', {"signs": signs})
 
 
-def update_Address(request, pk):  # 更新地址
+# 更新地址
+def update_Address(request, pk):
     signs = UserDATA.objects.get(id=pk)
     form = addressModelForm(instance=signs)
 
@@ -103,12 +110,14 @@ def update_Address(request, pk):  # 更新地址
     return render(request, 'login/update_Address.html', context)
 
 
-def user_adr_edit(request):  # 顯示地址
+# 顯示地址
+def user_adr_edit(request):
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'login/user_adr_edit.html', {"signs": signs})
 
 
-def user_password_edit(request):  # 更新密碼
+# 更新密碼
+def user_password_edit(request):
     user = request.user
     msg = None
 
@@ -132,28 +141,35 @@ def user_password_edit(request):  # 更新密碼
     return render(request, 'login/user_password_edit.html', {"msg": msg})
 
 
-@login_required(login_url='Logout')  # 沒有登入無法透過網址直接進入首頁
-def home(request):    # 首頁
+# 沒有登入無法透過網址直接進入首頁
+@login_required(login_url='Logout')
+# 首頁
+def home(request):
     return render(request, 'login/home.html')
 
 
-def logout(request):  # 登出指引
+# 登出指引
+def logout(request):
     return redirect('/login')
 
 
-def error(request):  # 錯誤頁面
+# 錯誤頁面
+def error(request):
     return render(request, 'login/404.html')
 
 
-def forget(request):  # 忘記密碼頁面
+# 忘記密碼頁面
+def forget(request):
     return render(request, 'login/forget.html')
 
 
-def shopping_cart(request):  # 購物車
+# 購物車
+def shopping_cart(request):
     return render(request, 'login/shopping_cart.html')
 
 
-def shopping_info(request):  # 通知頁面
+# 通知頁面
+def shopping_info(request):
     return render(request, 'login/shopping_info.html')
 
 

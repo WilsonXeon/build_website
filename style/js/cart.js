@@ -13,14 +13,14 @@ let componentCart = {
       },
   methods:{
         //減少購買數量
-        minusOne (item) {
+        minusOne(item) {
           item.amountShow--
           item.amountShow = (item.amountShow < 1) ? 1 : item.amountShow
           this.sum(item)
           this.updataCart()
         },
         //增加購買數量
-        addOne (item) {
+        addOne(item) {
           item.amountShow++
           item.amountShow = (item.amountShow > 9) ? 9 : item.amountShow
           
@@ -28,7 +28,7 @@ let componentCart = {
           this.updataCart()
         },
         //刪除商品
-        remove (item){
+        remove(item){
           let index = this.newAdd.indexOf(item)
           this.newAdd.splice(index,1)
           this.updataCart()
@@ -47,11 +47,11 @@ let componentCart = {
   computed:{
     //目前購買的總金額
     total: function () {
-      let total=0;
+      let total=0
       for(let i in this.newAdd){
-        total+=this.newAdd[i].price*this.newAdd[i].amountShow;
+        total+=this.newAdd[i].price*this.newAdd[i].amountShow
       }
-      return total;
+      return total
     },
   },
   template:
@@ -240,7 +240,6 @@ let app = new Vue({
             ],
     },
     mounted() {
-
       let add = localStorage.getItem('add')
         if(add !=null){
           this.add = JSON.parse(add)

@@ -1,0 +1,241 @@
+@font-face {
+    font-family: Secular One, sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+  }
+@keyframes slidein {//滑動
+    from {
+        padding-bottom: 100%;
+        width: 300%;
+    }}
+
+@function pxToVh($px){
+    @return $px *100/670 + vh;
+    }
+      
+@function pxToVw($px){
+    @return $px *100/1025 + vw;
+    }
+
+
+    .header{
+        margin: 0;
+        height: pxToVh(80);
+        background-color: #A18559;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        @media screen and (max-device-width: 420px){
+          width: 100vw;
+        }
+      }
+      .logo{
+        margin-block-start: 0em;
+        padding: 0%;
+        img{
+        margin: auto;
+        vertical-align: middle; 
+        }
+      }
+      #menuControl{//工具人
+        position: absolute;
+      }
+      #menuControl:checked ~.wrap >.list{
+        left: 0;
+      }
+      .menuBtn{//選單開關
+        width: 50px;
+        height: 50px;
+        background-color: #5F4B3F;
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        &::before{
+          content: " ";
+          position: absolute;
+          height: 2px;
+          left: 2px;
+          width: 30px;
+          background-color: #FBF3ED;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin: auto;
+          box-shadow: 0 12px 0 #FBF3ED,
+                      0 -12px 0 #FBF3ED;
+        }
+        span{
+          opacity: 0;
+          display: block;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+        }
+        @media screen and (min-device-width: 768px){
+          display: none;
+        }
+      }
+
+body{margin: 0;
+        background-image: url("../../testimg/backimg.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100%;
+        font-family: Secular One, sans-serif;
+        display: flex;
+        align-content: center;
+        align-items:center;
+        justify-content: center;
+        // 範例文字樣式：
+        ::-webkit-input-placeholder{
+        color: #5F4B3F;
+        letter-spacing: pxToVw(3);
+        font-size: pxToVw(12);
+        }
+        .fas{ 
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            margin-top: pxToVh(80);
+            margin-bottom: pxToVh(20);
+            color: #5c513d;
+            font-weight: 900;
+            letter-spacing: pxToVw(5);
+            font-size: pxToVw(24);
+            @media (max-device-width: 420px) {
+                font-size: 24px;
+                color: #FBF3ED;
+            }
+            //動畫
+            animation-duration: 1s;
+            animation-name: slidein;
+            padding-bottom: 0%;
+            width: 100%;
+        }
+        .sub{
+            //註冊鈕
+                top: 100%;
+                margin-top: pxToVh(10);
+                margin-bottom: pxToVh(10);
+                cursor: pointer;
+                background-color:#cc9e4e;
+                color: seashell;
+                width: pxToVw(300);
+                height: pxToVh(60);
+                font-size: pxToVw(14);
+                border-radius: 50px;
+                border: pxToVw(2) solid #ffffff;
+                font-weight: 600;
+                @media (max-device-width: 420px) {
+                    width: 200px;
+                    font-size: 16px;
+                }
+                &:hover{
+                    background-color:#fff3eb;
+                    color: #cc9e4e;
+                    box-shadow: 0 0 30px #ffffff;
+                    border: pxToVw(2) solid #cc9e4e;
+                    transition: 0.5s;
+                }
+            }
+           
+        }
+    .signup{
+        //表單
+    background-color:rgba(255, 243, 235,0.5);
+    width: pxToVw(400);
+    height: pxToVh(650);
+    margin-bottom: pxToVh(40);
+    border-radius: 30px;
+    padding-top: pxToVh(50);
+    padding-bottom: pxToVh(60);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (max-device-width: 420px) {
+        width: 300px;
+    }
+    .label{
+    color: #5c513d;
+    font-size: pxToVw(14);
+    font-weight: 500;
+    text-align: left;
+    }
+    
+        input{//輸入欄位
+            letter-spacing: 3px;
+            background-color: #fff3eb;
+            color: #cc9e4e;
+            width: pxToVw(250);
+            height: pxToVh(40);
+            padding: pxToVh(5);
+            margin-bottom: pxToVh(5);
+            margin-left: pxToVw(10);
+            border-style:none;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border:pxToVh(2) solid;
+            border-color: #cc9e4e;
+            font-size: pxToVw(14);
+            font-weight: 400;
+            @media (max-device-width: 420px) {
+                width: 200px;
+                height: 40px;
+            }
+            ::-webkit-input-placeholder{
+                color: #5c513d;
+            }
+             
+        }
+
+        // 鄉鎮
+        .selectControl{
+            background-color: #fff3eb;
+            color: #5F4B3F;
+            width: pxToVw(125);
+            height: pxToVh(50);
+            padding: pxToVh(10);
+            margin-top: pxToVh(20);
+            margin-bottom: pxToVh(20);
+            margin-left: pxToVw(10);
+            border-style:none;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border:pxToVh(2) solid;
+            border-color: #cc9e4e;
+            font-size: pxToVw(14);
+            font-weight: 400;
+            letter-spacing: pxToVw(2);
+            @media (max-device-width: 420px) {
+                width: 110px;
+                height: 40px;
+            }
+        }
+        
+        // 日期
+        .formDate{
+            padding: pxToVw(10);
+            width: pxToVw(200);
+            height: pxToVh(20);
+            margin-top: pxToVh(20);
+            margin-left: pxToVw(10);
+            margin-bottom: pxToVh(10);
+            font-size: pxToVw(14);
+            @media (max-device-width: 420px) {
+                width: 200px;
+                height: 30px;
+            }
+        }
+
+        }
+        .invalidFeedback{
+            text-align: left;
+            font-weight: 800;
+            font-size: pxToVw(12);
+            color: #5F4B3F;
+            margin-top: pxToVh(10);
+        }

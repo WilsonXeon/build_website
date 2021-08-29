@@ -1,0 +1,88 @@
+@charset "UTF-8";
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #D1913C;
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFD194), to(#D1913C));
+  background: linear-gradient(to bottom, #FFD194, #D1913C);
+}
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.title .err1 {
+  position: absolute;
+  bottom: 29.85075vh;
+  left: 39.02439vw;
+  width: 24.39024vw;
+}
+
+.title .err2 {
+  width: 21.95122vw;
+  z-index: 2;
+  position: absolute;
+  bottom: 32.08955vh;
+  left: 40vw;
+  -webkit-animation: myfirst 5s infinite linear;
+          animation: myfirst 5s infinite linear;
+  -webkit-transform-origin: center 50%;
+          transform-origin: center 50%;
+  /*transform-origin: 定元素的基點位置*/
+}
+
+@-webkit-keyframes myfirst {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes myfirst {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+h2 {
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  top: 29.85075vh;
+  color: white;
+  letter-spacing: 0.4878vw;
+  font-size: 1.95122vw;
+  font-weight: 100;
+}
+/*# sourceMappingURL=404.css.map */

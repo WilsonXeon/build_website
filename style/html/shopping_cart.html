@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/editstyle.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>
+            會員資料
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+</head>
+<!-- 導航欄 -->
+<input type="checkbox" name="" id="menuControl">
+    <div class="header">
+        <h1 class="logo">
+            <a href="../html/home.html"><img src="../../testimg/TAG-V2.png"></a>
+        </h1>
+
+        <label for="menuControl" class="menuBtn">
+            <span>選單</span>
+        </label>
+    </div>
+
+<body>
+    <div class="wrap" id="app">
+        <!-- 左邊選單 -->
+        <div class="list">
+            <li>
+                <a href="../html/user_edit.html"> ▎我的帳戶</a>
+                
+                <ui><a href="../html/user_edit.html"> ▏個人資料</ui></a>
+                <ui> <a href="../html/user_ccard.html">▏我的信用卡</ui></a>
+                <ui> <a href="../html/user_adr_edit.html"> ▏寄件地址</ui></a>
+                <ui> <a href="../html/user_password_edit.html"> ▏更改密碼</ui></a>
+                
+            </li>
+            
+            <li>
+                <a href="../html/shopping_cart.html">  ▎購物清單</a>
+            </li>
+
+            <li>
+                <a href="../html/shopping_info.html"> ▎通知一覽</a>
+            </li>
+        </div>
+
+            <form class="box5">
+                <!-- 購物清單標頭 -->
+                <p style="font-size: 30px;font-weight: 800;color:#5c513d;text-align: center;margin-top: 50px;"><i class="fas fa-shopping-cart"> 購物清單</i></p>
+                <!-- 購物清單元件 -->
+               <component-cart :add="add" :total="total"></component-cart>
+                
+            </form>
+            
+             
+    </div>
+             
+             <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+             <script src="../js/cart.js"></script>
+             <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
+</body>
+</html>

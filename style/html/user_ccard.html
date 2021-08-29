@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html  lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/editstyle.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>
+            會員資料
+        </title>
+ 
+</head>
+<!-- 導航欄 -->
+<input type="checkbox" name="" id="menuControl">
+    <div class="header">
+        <h1 class="logo">
+            <a href="../html/home.html"><img src="../../testimg/TAG-V2.png"></a>
+        </h1>
+
+        <label for="menuControl" class="menuBtn">
+            <span>選單</span>
+        </label>
+    </div>
+
+<body>
+    <div class="wrap">
+     <!-- 左邊選單 -->
+     <div class="list">
+        <li>
+            <a href="../html/user_edit.html"> ▎我的帳戶</a>
+            
+            <ui><a href="../html/user_edit.html"> ▏個人資料</ui></a>
+            <ui> <a href="../html/user_ccard.html">▏我的信用卡</ui></a>
+            <ui> <a href="../html/user_adr_edit.html"> ▏寄件地址</ui></a>
+            <ui> <a href="../html/user_password_edit.html"> ▏更改密碼</ui></a>
+            
+        </li>
+        
+        <li>
+            <a href="../html/shopping_cart.html">  ▎購物清單</a>
+        </li>
+
+        <li>
+            <a href="../html/shopping_info.html"> ▎通知一覽</a>
+        </li>
+    </div>
+    <!-- 表單內容 -->
+        <form novalidate="novalidate" class="box2">
+            <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fab fa-cc-visa"> 我的信用卡</i></p>
+            <div class="labelInput">
+                <label class="labelName">持卡人姓名</label>
+                <input type="ccname" name="name" class="formName" autocomplete="ccName" placeholder="Name" required/>
+            </div>
+            <div class="labelInputNumber">
+                <label class="labelCard">卡號</label>
+                <input type="cardnumber" name="cardNumber" class="formControl" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="ccNumber" maxlength="4" placeholder="1234" required/>-
+                <input type="cardnumber" name="cardNumber" class="formControl" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="ccNumber" maxlength="4" placeholder="1234" required/>-
+                <input type="cardnumber" name="cardNumber" class="formControl" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="ccNumber" maxlength="4" placeholder="1234" required/>-
+                <input type="cardnumber" name="cardNumber" class="formControl" id="card_number" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="ccNumber" maxlength="4" placeholder="1234" required/>
+            </div>
+            <div class="labelInput">
+                <label class="labelDate">到期日</label>
+                <input type="text" name="expiredMonth" class="formControl" pattern="[0-9\s]{2}" autocomplete="ccNumber" maxlength="2" placeholder="MM" required/>/
+                <input type="text" name="expiredYear" class="formControl" pattern="[0-9\s]{2}" autocomplete="ccNumber" maxlength="2" placeholder="YY" required/>
+            </div>
+           
+            <div class="labelInput">
+                <label for="frmCCCVC" class="labelCvc">CVC驗證</label>
+                <input name="cvc" id="frmCCCVC"  class="formControl" required autocomplete="ccCsc" pattern="[0-9\s]{3}" autocomplete="ccNumber" maxlength="3" placeholder="123" required/>
+            </div>
+            <div class="buttonDiv">
+                <input type="button" onclick="submit()" value="確認卡片" class="button"/>
+            </div>
+            </form>
+            
+
+        </div>
+        
+        
+    </div>
+    <script src="../js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<script src="http://jquerycreditcardvalidator.com/jquery.creditCardValidator.js"></script>
+
+ <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
+</body>
+</html>

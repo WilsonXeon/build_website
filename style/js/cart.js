@@ -5,18 +5,21 @@ let componentCart = {
     }
   },
   mounted() {
+    //將儲存的商品資訊(add)取出，由newAdd渲染畫面
     let add = localStorage.getItem('add')
       if(add !=null){
         this.newAdd = JSON.parse(add)
         }
       },
   methods:{
+        //減少購買數量
         minusOne (item) {
           item.amountShow--
           item.amountShow = (item.amountShow < 1) ? 1 : item.amountShow
           this.sum(item)
           this.updataCart()
         },
+        //增加購買數量
         addOne (item) {
           item.amountShow++
           item.amountShow = (item.amountShow > 9) ? 9 : item.amountShow
@@ -24,14 +27,17 @@ let componentCart = {
           this.sum(item)
           this.updataCart()
         },
+        //刪除商品
         remove (item){
           let index = this.newAdd.indexOf(item)
           this.newAdd.splice(index,1)
           this.updataCart()
         },
+        //儲存新資訊到舊的key
         updataCart() {
           localStorage.setItem("add", JSON.stringify(this.newAdd))
         },
+        //小計
         sum(item){
           item.sum = item.amountShow * item.price
           return item
@@ -241,14 +247,19 @@ let app = new Vue({
           }
         },
     methods:{
+      //加入購物車
         addToCart (item) {
+          //動畫
           item.amount += item.amountShow
             item.showingIcon = true
             setTimeout(() => {
                 item.showingIcon = false
             }, 800)
+            //計算小計
             this.sum(item)
+            //更新到localstorage
             this.updataCart()
+            //處理重複加入商品
             let findProduct = this.add.find(o => o.itemId === item.itemId)
             let rel = true
             if(findProduct){
@@ -261,12 +272,14 @@ let app = new Vue({
               localStorage.setItem('add', JSON.stringify(this. add));
             }
         },
+        //商品數量減一
           minusOne (item) {
             item.amountShow--
             item.amountShow = (item.amountShow < 1) ? 1 : item.amountShow
             this.sum(item)
             this.updataCart()
           },
+          //商品數量加一
           addOne (item) {
             item.amountShow++
             item.amountShow = (item.amountShow > 100) ? 100 : item.amountShow
@@ -274,6 +287,7 @@ let app = new Vue({
             this.sum(item)
             this.updataCart()
           },
+          //儲存更新後的購物資訊
           updataCart() {
             localStorage.setItem("add", JSON.stringify(this.add))
           },
@@ -284,6 +298,7 @@ let app = new Vue({
           
     },
     computed:{
+      //左側菜單篩選商品種類
         filterList(){
         if(this.show === "food"){
             return this.cols.filter((item)=>{
@@ -327,7 +342,7 @@ let app = new Vue({
             return this.cols
           }
         },
-           //目前購買的總金額
+    //目前購買的總金額
     total: function () {
       let total=0;
       for(let i in this.add){

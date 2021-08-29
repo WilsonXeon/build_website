@@ -76,7 +76,7 @@
         margin: 0px;
     }
     .loginDiv{
-        background-image: url("../build_website/testimg/backimg2.jpg");
+        background-image: url("../../testimg/backimg2.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100%;

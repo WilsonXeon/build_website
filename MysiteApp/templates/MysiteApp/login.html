@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html  lang="zh-Hant-TW">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+            <title>
+                 好米行login
+            </title>
+        <!--BootstrapRWD-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="../../static/css/login.css" rel="stylesheet">
+    </head>
+
+    <input type="checkbox" name="" id="menu_control">
+        <div class="header">
+            <h1 class="logo">
+                <a href=""><img src="https://raw.githubusercontent.com/WilsonXeon/build_website/pages/testimg/logo.png"></a>
+            </h1>
+
+            <label for="menu_control" class="menu_btn">
+                <span>選單</span>
+            </label>
+        </div>
+
+
+    <body>
+        <div class="loginDiv">
+           <!-- 帳號密碼表單 -->
+             <form class="login" action="" method="post">
+
+             <!-- 跳錯誤訊息 -->
+                  {% if message %}
+                     <div class="alert alert-warning">{{ message }}</div>
+                  {% endif %}
+
+                  <!-- 跨站請求偽造 -->
+                  {% csrf_token %}
+
+
+                  <h1>Login</h1>
+
+
+                  <div class="form-group">
+                        <input type="text" name='username' class="form-control" id="accountInput" placeholder="帳號" autofocus required>
+                  </div>
+                  <div class="form-group">
+                        <input type="password" name='password' class="form-control" id="passwordInput" placeholder="密碼" required>
+
+                  </div>
+
+                  <div id="href1">
+                      <input type="submit" value="登入" >
+                     <a href="forget" target="_blank">忘記密碼</a>
+                     <a href="register" target="_blank">加入會員</a>
+                  </div>
+
+
+
+
+          </form>
+        </div>
+        <script src="{% static '/css/index.js' %}"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+    </body>
+
+</html>

@@ -15,19 +15,24 @@ def login(request):
             # 使用者名稱字符合法性驗證
             # 密碼長度驗證
             # 更多的其它驗證.....
+            你完全沒有做驗證阿
             try:
                 user = models.UserDATA.objects.get(username=username)
             except:
                 message = '使用者不存在！'
+                為什麼是回傳整個網頁
                 return render(request, 'MysiteApp/login.html', {'message': message})
 
             if user.password == password:
                 print(username, password)
+                為什麼要print
                 return redirect('/home')
             else:
                 message = '密碼不正確！'
                 return render(request, 'MysiteApp/login.html', {'message': message})
         else:
+            這個else意思是?
+            為什麼要回傳這一頁
             return render(request, 'MysiteApp/login.html')
     return render(request, 'MysiteApp/login.html', locals())
 
@@ -38,19 +43,22 @@ def register(request):
 
     if request.method == "POST":
         form = signModelForm(request.POST)
+        錯誤都不用做任何處理?
         if form.is_valid():
             form.save()
             return redirect('/home')
+    為何要空格
     context = {
 
         'form': form
     }
-
+    所以這裡除了post之外都是回傳這一個?
     return render(request, 'MysiteApp/register.html', context)
 
 
 # 顯示個人資料
 def user_edit(request):
+    都不用限定 request.method?
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'MysiteApp/user_edit.html', {"signs": signs})
 
@@ -62,9 +70,11 @@ def update_person(request, pk):
 
     if request.method == "POST":
         form = editModelForm(request.POST, instance=signs)
+        錯誤都不用做任何處理?
         if form.is_valid():
             form.save()
             return redirect('/user_edit')
+    為何要空格?
     context = {
 
         'form': form
@@ -79,17 +89,20 @@ def update_ccard(request, pk):
 
     if request.method == "POST":
         form = cardModelForm(request.POST, instance=signs)
+        錯誤都不用做任何處理?
         if form.is_valid():
             form.save()
             return redirect('/user_ccard')
     context = {
         'form': form
     }
+    所以這裡除了post之外都是回傳這一個?
     return render(request, 'MysiteApp/update_ccard.html', context)
 
 
 # 顯示信用卡
 def user_ccard(request):
+    都不用限定 request.method?
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'MysiteApp/user_ccard.html', {"signs": signs})
 
@@ -98,7 +111,7 @@ def user_ccard(request):
 def update_adr(request, pk):
     signs = UserDATA.objects.get(id=pk)
     form = addressModelForm(instance=signs)
-
+    同上面問題
     if request.method == "POST":
         form = addressModelForm(request.POST, instance=signs)
         if form.is_valid():
@@ -120,6 +133,7 @@ def user_adr_edit(request):
 def user_password_edit(request):
     user = request.user
     msg = None
+    為何這裡要宣告msg?
 
     if request.method == 'POST':
         password = request.POST.get("old_password", "")

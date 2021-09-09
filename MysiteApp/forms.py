@@ -32,8 +32,8 @@ class editModelForm(forms.ModelForm):
 class cardModelForm(forms.ModelForm):
     class Meta:
         model = UserDATA
-        fields = ('card_name', 'card_number1', 'card_number2', 'card_number3', 'card_number4', 'card_date1'
-                  , 'card_date2', 'card_CVC')
+        fields = ('card_name', 'card_number1', 'card_number2', 'card_number3', 'card_number4',
+                  'card_date1', 'card_date2', 'card_CVC')
 
         widgets = {
             'card_name': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:220px'}),
@@ -66,7 +66,6 @@ class addressModelForm(forms.ModelForm):
             'address1': forms.Select(attrs={'class': 'form-control', 'style': 'width:425x'}),
             'address2': forms.Select(attrs={'class': 'form-control', 'style': 'width:425x'}),
             'address3': forms.TextInput(attrs={'class': 'form-control', 'style': 'width:425x'}),
-
         }
         labels = {
             'address1': '',
@@ -82,7 +81,6 @@ class passwordModelForm(forms.ModelForm):
         fields = ('password',)
         widgets = {
             'password': forms.Select(attrs={'class': 'form-control', 'style': 'width:425x'}),
-
         }
         labels = {
             'password': '',

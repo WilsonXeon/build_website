@@ -9,74 +9,68 @@ from django.contrib.auth.decorators import login_required
 # 登入頁面
 def login(request):
     if request.method == 'POST':
+        # 用來接受從前端表單中傳過來的數據
         username = request.POST.get('username')
         password = request.POST.get('password')
-        if username.strip() and password:
-            # 使用者名稱字符合法性驗證
-            # 密碼長度驗證
-            # 更多的其它驗證.....
-            你完全沒有做驗證阿
+        if username and password:
             try:
                 user = models.UserDATA.objects.get(username=username)
             except:
+                # 為了顯示錯誤訊息，才用render
                 message = '使用者不存在！'
-                為什麼是回傳整個網頁
                 return render(request, 'MysiteApp/login.html', {'message': message})
-
             if user.password == password:
-                print(username, password)
-                為什麼要print
                 return redirect('/home')
             else:
+                # 為了顯示錯誤訊息，才用render
                 message = '密碼不正確！'
                 return render(request, 'MysiteApp/login.html', {'message': message})
-        else:
-            這個else意思是?
-            為什麼要回傳這一頁
-            return render(request, 'MysiteApp/login.html')
-    return render(request, 'MysiteApp/login.html', locals())
+    return render(request, 'MysiteApp/login.html')
 
 
 # 註冊頁面
 def register(request):
+    # 這邊需要先宣告
     form = signModelForm()
-
     if request.method == "POST":
         form = signModelForm(request.POST)
-        錯誤都不用做任何處理?
         if form.is_valid():
             form.save()
             return redirect('/home')
-    為何要空格
+        else:
+            # 為了顯示錯誤訊息，才用render
+            message = '帳號已被註冊'
+            return render(request, 'MysiteApp/register.html', {'message': message})
+    # 這邊才能做使用
     context = {
-
         'form': form
     }
-    所以這裡除了post之外都是回傳這一個?
     return render(request, 'MysiteApp/register.html', context)
 
 
 # 顯示個人資料
 def user_edit(request):
-    都不用限定 request.method?
+    # filter() 可以根據代入的參數來決定輸出的物件
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'MysiteApp/user_edit.html', {"signs": signs})
 
 
 # 更新個人資料
 def update_person(request, pk):
+    # 這邊需要先宣告
+    # 利用get() 可以直接取得物件
     signs = UserDATA.objects.get(id=pk)
     form = editModelForm(instance=signs)
-
     if request.method == "POST":
         form = editModelForm(request.POST, instance=signs)
-        錯誤都不用做任何處理?
         if form.is_valid():
             form.save()
             return redirect('/user_edit')
-    為何要空格?
+        else:
+            message = '更改失敗，請重新輸入'
+            return render(request, 'MysiteApp/user_edit.html', {'message': message})
+    # 這邊才能做使用
     context = {
-
         'form': form
     }
     return render(request, 'MysiteApp/update_person.html', context)
@@ -84,25 +78,26 @@ def update_person(request, pk):
 
 # 更新信用卡
 def update_ccard(request, pk):
+    # 利用get() 可以直接取得物件
     signs = UserDATA.objects.get(id=pk)
     form = cardModelForm(instance=signs)
-
     if request.method == "POST":
         form = cardModelForm(request.POST, instance=signs)
-        錯誤都不用做任何處理?
         if form.is_valid():
             form.save()
             return redirect('/user_ccard')
+        else:
+            message = '更改失敗，請重新輸入'
+            return render(request, 'MysiteApp/user_ccard.html', {'message': message})
     context = {
         'form': form
     }
-    所以這裡除了post之外都是回傳這一個?
     return render(request, 'MysiteApp/update_ccard.html', context)
 
 
 # 顯示信用卡
 def user_ccard(request):
-    都不用限定 request.method?
+    # filter() 可以根據代入的參數來決定輸出的物件
     signs = UserDATA.objects.filter(id=1)
     return render(request, 'MysiteApp/user_ccard.html', {"signs": signs})
 
@@ -111,12 +106,14 @@ def user_ccard(request):
 def update_adr(request, pk):
     signs = UserDATA.objects.get(id=pk)
     form = addressModelForm(instance=signs)
-    同上面問題
     if request.method == "POST":
         form = addressModelForm(request.POST, instance=signs)
         if form.is_valid():
             form.save()
             return redirect('/user_adr_edit')
+        else:
+            message = '更改失敗，請重新輸入'
+            return render(request, 'MysiteApp/user_adr_edit.html', {'message': message})
     context = {
         'form': form
     }
@@ -133,13 +130,10 @@ def user_adr_edit(request):
 def user_password_edit(request):
     user = request.user
     msg = None
-    為何這裡要宣告msg?
-
     if request.method == 'POST':
         password = request.POST.get("old_password", "")
         new_password = request.POST.get("new_password", "")
         confirm = request.POST.get("confirm_password", "")
-
         if user.check_password(password):
             if new_password or confirm:
                 msg = "新密碼不能為空"
@@ -150,8 +144,7 @@ def user_password_edit(request):
                 user.save()
                 return redirect("/user_password_edit/")
         else:
-            msg = "就密碼輸入錯誤"
-
+            msg = "舊密碼輸入錯誤"
     return render(request, 'MysiteApp/user_password_edit.html', {"msg": msg})
 
 

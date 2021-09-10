@@ -65,13 +65,14 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 記得填寫資料庫的資訊!!
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shop',
-        'USER': 'user',
-        'PASSWORD': 'POMELO',
-        'HOST': '52.171.57.192',
-        'PORT': '3306',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 

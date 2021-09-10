@@ -1,3 +1,9 @@
+★ shop裡面的setting.py檔，記得輸入自己的SQL資料哦!
+---
+
+API文件→ ● https://hackmd.io/@andrewzhen0903/BJTdesDMK
+---
+
 電商平台(1)-前置作業
 ===
 ###### tags: `電商平台`

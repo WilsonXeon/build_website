@@ -1,97 +1,103 @@
 <!DOCTYPE html>
-<html  lang="zh-Hant-TW">
+<html lang="zh-Hant-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <title>
-            加入會員
-        </title>
-        <!-- vue -->
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <title>
+        加入會員
+    </title>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 </head>
 
 <!-- 導航欄 -->
 <input type="checkbox" name="" id="menuControl">
-    <div class="header">
-        <h1 class="logo">
-            <a href="../html/home.html"><img src="../../testimg/TAG-V2.png"></a>
-        </h1>
+<div class="header">
+    <h1 class="logo">
+        <a href="../html/home.html"><img src="../../testimg/TAG-V2.png"></a>
+    </h1>
 
-        <label for="menuControl" class="menuBtn">
-            <span>選單</span>
-        </label>
-    </div>
+    <label for="menuControl" class="menuBtn">
+        <span>選單</span>
+    </label>
+</div>
 
 <body>
     <div id="app">
         <div class="sign">
-        <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
-        <form action="" method="post" class="signup">
-            <!-- 表單內容 -->
+            <p class="fas"><i class="fas fa-pen-nib"> 【加入會員】</i></p>
+            <form action="" method="post" class="signup">
+                <!-- 表單內容 -->
                 <div class="invalidFeedback" v-if="this.usernameError === true">
                     {{ userErrMsg }}
                 </div>
                 <div class="label_input">
-                <label class="label">　　帳號</label>
-                <input type="text" class="formControl" name="username" v-model="username" v-bind:class="{ 'is-invalid': usernameError }" placeholder="含大小寫英文數字，最多10位" required />
+                    <label class="label">　　帳號</label>
+                    <input type="text" class="formControl" name="username" v-model="username"
+                        v-bind:class="{ 'is-invalid': usernameError }" placeholder="含大小寫英文數字，最多10位" required />
                 </div>
 
                 <div class="invalidFeedback" v-if="this.passwordError === true">
                     {{ passErrMsg }}
                 </div>
                 <div class="label_input">
-                <label class="label">　　密碼</label>
-                <input type="password" class="formControl" name="password" v-model="password" v-bind:class="{ 'is-invalid': passwordError }" placeholder="含大小寫英文數字，最多10位" required />
+                    <label class="label">　　密碼</label>
+                    <input type="password" class="formControl" name="password" v-model="password"
+                        v-bind:class="{ 'is-invalid': passwordError }" placeholder="含大小寫英文數字，最多10位" required />
                 </div>
-                
+
                 <div class="label_input">
-                <label class="label">　　姓名</label>
-                <input type="text" class="formControl" v-model="name" name="name" placeholder="如：陳曉明" required/>
+                    <label class="label">　　姓名</label>
+                    <input type="text" class="formControl" v-model="name" name="name" placeholder="如：陳曉明" required />
                 </div>
 
                 <div class="invalidFeedback" v-if="this.emailError === true">
                     {{ emailErrMsg }}
                 </div>
                 <div class="label_input">
-                <label class="label">　　信箱</label>
-                <input type="email" class="formControl" name="email" v-model="email" v-bind:class="{ 'is-invalid': emailError }" placeholder="如：adc123@.gmail.com" required />
+                    <label class="label">　　信箱</label>
+                    <input type="email" class="formControl" name="email" v-model="email"
+                        v-bind:class="{ 'is-invalid': emailError }" placeholder="如：adc123@.gmail.com" required />
                 </div>
 
                 <div class="invalidFeedback" v-if="this.telError === true">
                     {{ telErrMsg }}
                 </div>
                 <div class="label_input">
-                <label class="label">手機號碼</label>
-                <input type="tel" class="formControl" name="tel" v-model="tel" v-bind:class="{ 'is-invalid': telError }" placeholder="如：0900123123" required />
+                    <label class="label">手機號碼</label>
+                    <input type="tel" class="formControl" name="tel" v-model="tel"
+                        v-bind:class="{ 'is-invalid': telError }" placeholder="如：0900123123" required />
                 </div>
 
-            <hr size="0.5px" width="80%">
-            <!-- 用div-select把label和input包起來，才可以在CSS調整成同一行 -->
+                <hr size="0.5px" width="80%">
+                <!-- 用div-select把label和input包起來，才可以在CSS調整成同一行 -->
                 <div class="select">
                     <div id="vModelSelect">
-                    <label for="address" class="label">　　地址</label>
-                    <select id="縣市1" v-model="selected1" class="selectControl"></select>
-                    <select id="鄉鎮市區1" v-model="selected2" class="selectControl"></select>
-                </div>
-                        <div class="label_input">
-                            <label class="label">詳細地址</label>
-                            <input type="addressLine1" v-model="message" class="formControl" name="addressLine1" placeholder="如：仁義路四段12號之3" required />
-                        </div>
+                        <label for="address" class="label">　　地址</label>
+                        <select id="縣市1" v-model="selected1" class="selectControl"></select>
+                        <select id="鄉鎮市區1" v-model="selected2" class="selectControl"></select>
                     </div>
-            <hr size="0.5px" width="80%">
-                <div class="select">
-                <label for="bdayInput" class="label">　　生日</label>   
-                <input type="date" class="formControl" v-model="date" name="date" required /> 
+                    <div class="label_input">
+                        <label class="label">詳細地址</label>
+                        <input type="addressLine1" v-model="message" class="formControl" name="addressLine1"
+                            placeholder="如：仁義路四段12號之3" required />
+                    </div>
                 </div>
-                
+                <hr size="0.5px" width="80%">
+                <div class="select">
+                    <label for="bdayInput" class="label">　　生日</label>
+                    <input type="date" class="formControl" v-model="date" name="date" required />
+                </div>
+
                 <button class="sub" type="button" @click="inputHandler">註冊</button>
             </form>
-        
+
+        </div>
     </div>
-</div>
 
 
     <script src="../js/user_sign.js"></script>
@@ -106,9 +112,10 @@
             //傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
             AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
             //後面四個參數分別是兩個下拉選單的預設文字跟值
-           AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
-       }
-     </script>
+            AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
+        }
+    </script>
     <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

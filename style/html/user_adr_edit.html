@@ -1,43 +1,44 @@
 <!DOCTYPE html>
-<html  lang="zh-Hant-TW">
+<html lang="zh-Hant-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/editstyle.css">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <title>
-            會員資料
-        </title>
+    <title>
+        會員資料
+    </title>
 </head>
 <!-- 導航欄 -->
 <input type="checkbox" name="" id="menuControl">
-    <div class="header">
-        <h1 class="logo">
-            <a href="../html/home.html"><img src="../../testimg/TAG-V2.png"></a>
-        </h1>
+<div class="header">
+    <h1 class="logo">
+        <a href="../html/home.html"><img src="../../testimg/TAG-V2.png"></a>
+    </h1>
 
-        <label for="menuControl" class="menuBtn">
-            <span>選單</span>
-        </label>
-    </div>
+    <label for="menuControl" class="menuBtn">
+        <span>選單</span>
+    </label>
+</div>
 
 <body>
     <div class="wrap">
-         <!-- 左邊選單 -->
-         <div class="list">
+        <!-- 左邊選單 -->
+        <div class="list">
             <li>
                 <a href="../html/user_edit.html"> ▎我的帳戶</a>
-                
+
                 <ui><a href="../html/user_edit.html"> ▏個人資料</ui></a>
                 <ui> <a href="../html/user_ccard.html">▏我的信用卡</ui></a>
                 <ui> <a href="../html/user_adr_edit.html"> ▏寄件地址</ui></a>
                 <ui> <a href="../html/user_password_edit.html"> ▏更改密碼</ui></a>
-                
+
             </li>
-            
+
             <li>
-                <a href="../html/shopping_cart.html">  ▎購物清單</a>
+                <a href="../html/shopping_cart.html"> ▎購物清單</a>
             </li>
 
             <li>
@@ -45,36 +46,39 @@
             </li>
         </div>
         <!-- 表單內容 -->
-                <form class="box3">
-                    <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i class="fas fa-map-marker-alt"> 寄件地址</i></p>
-                        <select id="縣市1" class="selectControl" required></select>
+        <form class="box3">
+            <p style="font-size: 25px;font-weight: 800;color:#5c513d;text-align: center;"><i
+                    class="fas fa-map-marker-alt"> 寄件地址</i></p>
+            <select id="縣市1" class="selectControl" required></select>
 
-                        <select id="鄉鎮市區1" class="selectControl" required></select>
-                        
-                        <input type="text" class="formControl" autocomplete="address-level1" value="" placeholder="詳細地址 如：仁義路四段12號之3" required/>
-                    <div class="button_div">
-                        <input type="button" onclick="show()" value="儲存地址" class="button"/> 
-                    </div>
-                    </form>
-    </div>         
+            <select id="鄉鎮市區1" class="selectControl" required></select>
 
-    
-<!-- 地址選單JS檔 -->
-<script src="../js/visa.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+            <input type="text" class="formControl" autocomplete="address-level1" value=""
+                placeholder="詳細地址 如：仁義路四段12號之3" required />
+            <div class="button_div">
+                <input type="button" onclick="show()" value="儲存地址" class="button" />
+            </div>
+        </form>
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- 地址選單JS -->
-<script type="text/javascript">
-    window.onload = function () {
-        //當頁面載完之後，用AddressSeleclList.Initialize()，
-        //傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
-        AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
-        //後面四個參數分別是兩個下拉選單的預設文字跟值
-       AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
-   }
- </script>
-<script src="../js/index.js"></script>
- <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
+
+    <!-- 地址選單JS檔 -->
+    <script src="../js/visa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 地址選單JS -->
+    <script type="text/javascript">
+        window.onload = function () {
+            //當頁面載完之後，用AddressSeleclList.Initialize()，
+            //傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
+            AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
+            //後面四個參數分別是兩個下拉選單的預設文字跟值
+            AddressSeleclList.Initialize('縣市2', '鄉鎮市區2', 'Please Select City', '0', 'Please Select Area', '0');
+        }
+    </script>
+    <script src="../js/index.js"></script>
+    <script src="https://kit.fontawesome.com/a0640d73c3.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
